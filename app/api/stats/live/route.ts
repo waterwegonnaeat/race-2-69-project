@@ -11,11 +11,9 @@ export async function GET(request: NextRequest) {
     // Get current active games
     const liveGames = await prisma.game.findMany({
       where: {
-        gameStatus: 'live',
+        gameStatus: 'IN_PROGRESS',
       },
       include: {
-        homeTeam: true,
-        awayTeam: true,
         r69Events: true,
       },
     })
@@ -24,7 +22,7 @@ export async function GET(request: NextRequest) {
     const totalR69Events = await prisma.r69Event.count()
     const r69WithWin = await prisma.r69Event.count({
       where: {
-        didWin: true,
+        r69w: true,
       },
     })
     const winRate = totalR69Events > 0 ? ((r69WithWin / totalR69Events) * 100).toFixed(1) : '0.0'
@@ -36,11 +34,6 @@ export async function GET(request: NextRequest) {
         createdAt: 'desc',
       },
       include: {
-        team: {
-          select: {
-            displayName: true,
-          },
-        },
         game: {
           select: {
             gameStatus: true,
@@ -59,8 +52,8 @@ export async function GET(request: NextRequest) {
       let eventType = 'r69'
       let eventMessage = 'Reached 69 first!'
 
-      if (event.game.gameStatus === 'final') {
-        if (event.didWin) {
+      if (event.game.gameStatus === 'FINAL') {
+        if (event.r69w) {
           eventType = 'win'
           eventMessage = 'Won after R69'
         } else {
@@ -70,7 +63,7 @@ export async function GET(request: NextRequest) {
       }
 
       return {
-        team: event.team?.displayName || 'Unknown',
+        team: event.teamName,
         event: eventMessage,
         time: timeStr,
         type: eventType,
