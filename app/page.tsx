@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { TeamSearch } from '@/components/TeamSearch'
@@ -19,7 +19,7 @@ import {
   Calendar, Filter, Home, Plane, Award, Timer, Zap, Menu, X
 } from 'lucide-react'
 
-export default function DashboardPage() {
+function DashboardContent() {
   const searchParams = useSearchParams()
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null)
   const [selectedTeamLogo, setSelectedTeamLogo] = useState<string | null>(null)
@@ -581,5 +581,13 @@ export default function DashboardPage() {
         }
       `}</style>
     </div>
+  )
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <DashboardContent />
+    </Suspense>
   )
 }
