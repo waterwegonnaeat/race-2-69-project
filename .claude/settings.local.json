@@ -37,7 +37,11 @@
       "Bash(dir:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(vercel --version:*)",
+      "Bash(start https://vercel.com/login)",
+      "Bash(vercel --yes:*)"
     ],
     "deny": [],
     "ask": []

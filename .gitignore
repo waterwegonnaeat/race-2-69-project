@@ -54,3 +54,5 @@ ENV/
 
 # archived documentation
 archive/
+
+.vercel
