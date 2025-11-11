@@ -2,7 +2,9 @@
 
 ## The NCAA Basketball Analytics Platform Tracking the Most Interesting Stat in Sports
 
-> **Status**: ✅ **PRODUCTION READY** - All core features implemented and tested
+> **Status**: ✅ **LIVE IN PRODUCTION** - Deployed to Vercel
+>
+> **Live URL**: https://race-2-69-project.vercel.app
 
 ---
 
@@ -15,6 +17,28 @@ This project combines real-time sports data from ESPN, statistical analysis, and
 ### 🎯 The Phenomenon
 
 Statistical analysis shows that teams who reach 69 points first demonstrate a strong correlation with game victory across thousands of NCAA basketball games. This dashboard tracks, analyzes, and celebrates this remarkable pattern, providing insights into game tempo and momentum.
+
+---
+
+## 🚀 Live Deployment
+
+The app is currently deployed and running on Vercel:
+
+- **Production URL**: https://race-2-69-project.vercel.app
+- **Dashboard**: https://vercel.com/waterwegonnaeats-projects/race-2-69-project
+- **Status**: ✅ Build successful, fully deployed
+- **Hosting Cost**: $0/month (Vercel free tier)
+
+### Recent Deployment Fixes (Nov 11, 2025)
+
+Successfully resolved all deployment issues:
+- ✅ Fixed dynamic server usage errors (15 API routes)
+- ✅ Fixed useSearchParams Suspense boundary
+- ✅ Updated Next.js configuration for dynamic rendering
+- ✅ All TypeScript compilation errors resolved
+- ✅ Build completes successfully in ~1 minute
+
+**See [DEPLOYMENT_SUCCESS.txt](./DEPLOYMENT_SUCCESS.txt) for detailed fix documentation.**
 
 ---
 
@@ -55,6 +79,7 @@ Deep dive analytics with interactive charts:
 - Timing analysis (Line chart)
 - Weekly trends (Multi-line)
 - Outcome distribution (Pie chart)
+- **NEW**: Consecutive 100% seasons tracker (Tennessee: 5!)
 - Key insights and statistical findings
 
 ### 5. **⭐ The 69 Club**
@@ -94,7 +119,9 @@ Comprehensive documentation organized by topic:
 
 ### Getting Started
 - **[SETUP.md](./SETUP.md)** - Complete setup instructions for development environment
-- **[PROGRESS.md](./PROGRESS.md)** - Development changelog and current status (Updated Nov 11, 2025)
+- **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Production deployment instructions
+- **[DEPLOYMENT_SUCCESS.txt](./DEPLOYMENT_SUCCESS.txt)** - Recent deployment fixes and solutions
+- **[PROGRESS.md](./PROGRESS.md)** - Development changelog and current status
 
 ### Technical Documentation
 - **[R69W_ARCHITECTURE.md](./R69W_ARCHITECTURE.md)** - System architecture, database schema, and technical design
@@ -102,15 +129,14 @@ Comprehensive documentation organized by topic:
 - **[IMPLEMENTATION_CHECKLIST.md](./IMPLEMENTATION_CHECKLIST.md)** - Feature tracking and implementation status
 
 ### Feature Guides
-- **[TEAM_LOGO_IMPLEMENTATION.md](./TEAM_LOGO_IMPLEMENTATION.md)** ⭐ NEW - Team logo system and click-to-filter functionality
-- **[DATABASE_CLEANUP.md](./DATABASE_CLEANUP.md)** ⭐ NEW - Data quality procedures, cleanup scripts, and validation
+- **[TEAM_LOGO_IMPLEMENTATION.md](./TEAM_LOGO_IMPLEMENTATION.md)** - Team logo system and click-to-filter functionality
+- **[DATABASE_CLEANUP.md](./DATABASE_CLEANUP.md)** - Data quality procedures, cleanup scripts, and validation
 
-### Additional Setup Guides
+### Setup Guides
 - **[setup-supabase.md](./setup-supabase.md)** - Supabase-specific configuration
 - **[setup-postgres.md](./setup-postgres.md)** - PostgreSQL setup for local development
-
-### Archive
-Outdated or consolidated documentation has been moved to the `archive/` directory for reference.
+- **[VERCEL_SETUP.md](./VERCEL_SETUP.md)** - Vercel deployment configuration
+- **[HOSTING_OPTIONS.md](./HOSTING_OPTIONS.md)** - Alternative hosting platforms
 
 ### Key Files
 - **[prisma/schema.prisma](./prisma/schema.prisma)** - Complete database schema with tables, relations, and indexes
@@ -127,7 +153,7 @@ Outdated or consolidated documentation has been moved to the `archive/` director
 ### Prerequisites
 
 - Node.js 18+ and npm
-- PostgreSQL database (Supabase recommended)
+- PostgreSQL database (Supabase or Neon recommended)
 - Python 3.9+ (for data ingestion)
 - Git
 
@@ -185,34 +211,21 @@ python fetch_team_logos.py
 # Rate limited to prevent API issues
 ```
 
-### 📊 Recommended: Load Full Year of Data
-
-For the best analytics experience, load a full year of games:
-
-```bash
-cd scripts
-python fetch_historical_data.py
-# Select option: 4 (Last 365 days)
-# Estimated time: 2-4 hours with rate limiting
-# Expected: Several thousand games with R69 events
-```
-
 ---
 
 ## 🏗️ Tech Stack
 
 ### Frontend
-- **Framework**: Next.js 14+ (React 18, TypeScript)
+- **Framework**: Next.js 14.2.33 (React 18, TypeScript)
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Charts**: Recharts for data visualization
-- **State**: React Query (@tanstack/react-query) + Zustand
+- **State**: React Query (@tanstack/react-query)
 - **Images**: Next.js Image component for optimized team logos
 - **Animations**: Framer Motion for smooth transitions
 
 ### Backend
-- **API**: Next.js API Routes (server-side)
+- **API**: Next.js API Routes (server-side with dynamic rendering)
 - **Database**: PostgreSQL with Prisma ORM
-- **Hosting**: Supabase for database
 - **Data Pipeline**: Python scripts for ESPN API integration
 
 ### Data Sources
@@ -222,10 +235,16 @@ python fetch_historical_data.py
 - **Data Scope**: Multiple seasons, thousands of games
 
 ### Infrastructure
-- **Hosting**: Vercel (frontend)
-- **Database**: Supabase or Railway
-- **Monitoring**: Sentry
-- **Analytics**: Vercel Analytics
+- **Hosting**: Vercel (free tier, 100GB bandwidth/month)
+- **Database**: Neon.tech or Supabase (free tier)
+- **Build Time**: ~1 minute
+- **Deployment**: Automatic via GitHub integration
+
+### Technical Highlights
+- **Dynamic Rendering**: All API routes configured with `export const dynamic = 'force-dynamic'`
+- **Suspense Boundaries**: Proper handling of client-side routing with useSearchParams
+- **Standalone Output**: Optimized for serverless deployment
+- **Type Safety**: Full TypeScript coverage with strict mode
 
 ---
 
@@ -245,6 +264,13 @@ The app tracks the correlation between being first to 69 and winning:
 - Team Coverage: **579+ unique teams** with 95% logo coverage
 - Data Quality: ~95% completeness for core fields
 
+### Deployment Stats
+- Build Time: ~60 seconds
+- Bundle Size: 87.5 KB (shared first load JS)
+- API Routes: 17 (all dynamic)
+- Pages: 6 (optimized for dynamic rendering)
+- Total Routes: 23
+
 ---
 
 ## 🎯 Development Roadmap
@@ -261,6 +287,7 @@ The app tracks the correlation between being first to 69 and winning:
 - [x] Statistics explorer with charts
 - [x] Historical data (1 year+)
 - [x] R69 event tracking and analysis
+- [x] Consecutive 100% seasons tracker
 
 ### Phase 3: Enhanced Features ✅ COMPLETE
 - [x] Team logo system (95% coverage)
@@ -271,13 +298,48 @@ The app tracks the correlation between being first to 69 and winning:
 - [x] Mobile responsive design
 - [x] Multi-season support
 
-### Phase 4: Future Enhancements (Optional)
+### Phase 4: Production Deployment ✅ COMPLETE
+- [x] Vercel deployment configuration
+- [x] Dynamic rendering fixes
+- [x] Suspense boundary implementation
+- [x] Build optimization
+- [x] Production URL live
+
+### Phase 5: Future Enhancements (Optional)
 - [ ] Real-time live game updates
 - [ ] Predictive analytics with ML
 - [ ] User accounts and favorites
 - [ ] Email notifications
 - [ ] Social sharing features
 - [ ] Public API for developers
+
+---
+
+## 🚀 Deployment
+
+See **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** for complete deployment instructions.
+
+### Quick Deploy
+
+```bash
+# 1. Commit your changes
+git add .
+git commit -m "Ready for deployment"
+
+# 2. Deploy to Vercel
+vercel --prod
+
+# 3. Add DATABASE_URL in Vercel dashboard
+# https://vercel.com/[your-project]/settings/environment-variables
+```
+
+### Post-Deployment
+1. Add `DATABASE_URL` environment variable in Vercel
+2. Get free database from Neon.tech or Supabase
+3. Vercel automatically redeploys with new env vars
+4. Your app is live!
+
+**Total Cost**: $0/month
 
 ---
 
@@ -319,6 +381,7 @@ MIT License - feel free to use this code for your own projects!
 - **NCAA** for statistical records
 - **Basketball analytics community** for inspiration
 - **Open source community** for excellent tools and libraries
+- **Vercel** for free hosting and excellent developer experience
 
 ---
 
@@ -326,41 +389,7 @@ MIT License - feel free to use this code for your own projects!
 
 - **Issues**: GitHub Issues
 - **Discussions**: GitHub Discussions
-- **Twitter**: @R69W_Dashboard
-- **Email**: support@r69w.app
-
----
-
-## 🎓 Learning Resources
-
-New to web development? Check these out:
-
-- [Next.js Tutorial](https://nextjs.org/learn)
-- [React Documentation](https://react.dev)
-- [Prisma Quickstart](https://www.prisma.io/docs/getting-started)
-- [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook)
-
----
-
-## ⚡ Performance Benchmarks
-
-Target metrics for production:
-- **API Response Time**: <200ms (p95)
-- **Page Load Time**: <2 seconds
-- **Real-time Latency**: <15 seconds
-- **Database Query Time**: <50ms (p95)
-- **R69 Detection Accuracy**: >99%
-
----
-
-## 🔒 Privacy & Data
-
-- **No personal data collected**
-- **Public NCAA statistics only**
-- **Optional user accounts (future)**
-- **Analytics anonymized**
-- **GDPR compliant**
+- **Live App**: https://race-2-69-project.vercel.app
 
 ---
 
@@ -373,76 +402,16 @@ R69W exists because:
 3. **It's educational**: Teaches web development, data engineering, and statistics
 4. **It's open**: All code and data are accessible
 5. **It's useful**: Provides real insights into game tempo and momentum
-
----
-
-## 📈 Success Stories
-
-Once deployed, R69W can be used for:
-
-- **Sports journalism**: Unique angle for game coverage
-- **Betting analysis**: Understanding tempo advantages
-- **Coach analytics**: Tempo strategy insights
-- **Fan engagement**: Interactive game tracking
-- **Academic research**: Sports statistics studies
-
----
-
-## 🎬 Getting Started Videos (Coming Soon)
-
-1. Project Overview (5 min)
-2. Database Setup (10 min)
-3. Building Your First Component (15 min)
-4. Deploying to Production (8 min)
-5. Advanced Features (20 min)
-
----
-
-## 💡 Pro Tips
-
-1. **Start small**: Build Today's Board first, add features incrementally
-2. **Use TypeScript**: Prevents bugs and improves DX
-3. **Test early**: Set up unit tests from the start
-4. **Monitor everything**: Use Sentry and analytics from day 1
-5. **Optimize later**: Focus on features first, performance second
-6. **Document as you go**: Future you will thank present you
-7. **Join the community**: Learn from others building similar projects
-
----
-
-## 🏆 Hall of Fame
-
-*First 10 contributors will be featured here!*
-
----
-
-## 🔮 Future Vision
-
-Long-term goals for R69W:
-
-- **Multi-sport expansion**: NBA, WNBA, international leagues
-- **Mobile apps**: iOS and Android native apps
-- **Live streaming integration**: Sync with game broadcasts
-- **Community features**: User predictions, discussions
-- **Advanced ML**: Predict R69W outcomes with AI
-- **Merchandising**: "R69W" apparel for the meme-loving fan
-
----
-
-**Built with ❤️ by the basketball analytics community**
-
-*Race to 69. Win the game. Track the stats.*
+6. **It's free**: $0/month to run in production
 
 ---
 
 ## 📋 Project Structure
 
-This repository includes:
-
 ```
 race-2-69-project/
 ├── app/                          # Next.js app router
-│   ├── page.tsx                  # Main dashboard
+│   ├── page.tsx                  # Main dashboard (with Suspense)
 │   ├── game/[id]/page.tsx       # Game detail
 │   ├── leaderboards/page.tsx    # Leaderboards
 │   ├── stats/                   # Statistics pages
@@ -450,7 +419,7 @@ race-2-69-project/
 │   │   ├── 69-club/            # Elite teams
 │   │   ├── nice-games/         # Perfect 69s
 │   │   └── premature-69/       # Hall of shame
-│   └── api/                     # API routes
+│   └── api/                     # API routes (all dynamic)
 ├── components/                   # React components
 │   ├── TeamLogo.tsx            # Logo component
 │   ├── TeamGamesTimeline.tsx   # Team analysis
@@ -463,13 +432,9 @@ race-2-69-project/
 │   └── validation-procedures.js # Data validation
 ├── prisma/
 │   └── schema.prisma           # Database schema
-├── PROGRESS.md                  # Development progress
-├── README.md                    # This file
-├── SETUP.md                     # Setup guide
-├── R69W_ARCHITECTURE.md        # Technical architecture
-├── API_EXAMPLES.md             # API documentation
-├── TEAM_LOGO_IMPLEMENTATION.md # Logo system guide
-└── DATABASE_CLEANUP.md         # Data quality docs
+├── next.config.js               # Next.js config (standalone mode)
+├── DEPLOYMENT_SUCCESS.txt       # Deployment fixes documentation
+└── Documentation...             # See above
 ```
 
 ---
@@ -480,4 +445,11 @@ race-2-69-project/
 
 ---
 
+**Built with ❤️ by the basketball analytics community**
+
+*Race to 69. Win the game. Track the stats.*
+
+---
+
 *Last Updated: November 11, 2025*
+*Deployed: ✅ Live on Vercel*
