@@ -88,7 +88,7 @@ export function ModernGameCard({ game, viewMode }: ModernGameCardProps) {
                 <div className="flex-1 grid grid-cols-2 gap-8">
                   {/* Away Team */}
                   <div className="flex items-center gap-3">
-                    <TeamLogo teamId={game.awayTeamId} size="sm" />
+                    <TeamLogo teamName={game.awayTeam} size="sm" />
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-white">{game.awayTeam}</span>
@@ -108,7 +108,7 @@ export function ModernGameCard({ game, viewMode }: ModernGameCardProps) {
 
                   {/* Home Team */}
                   <div className="flex items-center gap-3">
-                    <TeamLogo teamId={game.homeTeamId} size="sm" />
+                    <TeamLogo teamName={game.homeTeam} size="sm" />
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-white">{game.homeTeam}</span>
@@ -194,7 +194,7 @@ export function ModernGameCard({ game, viewMode }: ModernGameCardProps) {
             {/* Away Team */}
             <div className="space-y-3 mb-4">
               <div className="flex items-center gap-3">
-                <TeamLogo teamId={game.awayTeamId} size="md" />
+                <TeamLogo teamName={game.awayTeam} size="md" />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-white truncate">{game.awayTeam}</span>
@@ -240,7 +240,7 @@ export function ModernGameCard({ game, viewMode }: ModernGameCardProps) {
             {/* Home Team */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <TeamLogo teamId={game.homeTeamId} size="md" />
+                <TeamLogo teamName={game.homeTeam} size="md" />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-white truncate">{game.homeTeam}</span>
