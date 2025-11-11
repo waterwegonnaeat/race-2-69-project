@@ -30,8 +30,8 @@ export async function GET(request: NextRequest) {
 
     if (conference) {
       where.OR = [
-        { homeTeam: { conference } },
-        { awayTeam: { conference } },
+        { homeConference: conference },
+        { awayConference: conference },
       ]
     }
 
@@ -39,36 +39,11 @@ export async function GET(request: NextRequest) {
     const games = await prisma.game.findMany({
       where,
       include: {
-        homeTeam: {
-          select: {
-            id: true,
-            name: true,
-            displayName: true,
-            abbreviation: true,
-            conference: true,
-            logoUrl: true,
-          },
-        },
-        awayTeam: {
-          select: {
-            id: true,
-            name: true,
-            displayName: true,
-            abbreviation: true,
-            conference: true,
-            logoUrl: true,
-          },
-        },
         r69Events: {
           orderBy: {
             createdAt: 'asc',
           },
           take: 1,
-        },
-        playByPlay: {
-          select: {
-            id: true,
-          },
         },
       },
       orderBy: [
@@ -107,33 +82,35 @@ export async function GET(request: NextRequest) {
 
       return {
         id: game.id,
-        espnId: game.espnId,
-        homeTeam: game.homeTeam?.displayName || 'Home',
+        gameId: game.gameId,
+        homeTeam: game.homeTeamName,
         homeTeamId: game.homeTeamId,
         homeScore,
-        homeRecord: null, // TODO: Add team record
-        awayTeam: game.awayTeam?.displayName || 'Away',
+        homeRecord: null,
+        awayTeam: game.awayTeamName,
         awayTeamId: game.awayTeamId,
         awayScore,
-        awayRecord: null, // TODO: Add team record
+        awayRecord: null,
         status: game.gameStatus,
-        period: game.period,
-        clock: game.clock,
+        totalPeriods: game.totalPeriods,
+        overtimeFlag: game.overtimeFlag,
         gameDate: game.gameDate,
         startTime: game.gameDate?.toLocaleTimeString('en-US', {
           hour: 'numeric',
           minute: '2-digit',
         }),
-        conference: game.homeTeam?.conference || game.awayTeam?.conference,
+        conference: game.homeConference || game.awayConference,
         r69Event: r69Event ? {
           teamId: r69Event.teamId,
-          period: r69Event.period,
-          clock: r69Event.clock,
-          score: r69Event.score,
+          teamName: r69Event.teamName,
+          periodAt69: r69Event.periodAt69,
+          tTo69: r69Event.tTo69,
+          marginAt69: r69Event.marginAt69,
+          r69w: r69Event.r69w,
         } : null,
-        pace: null, // TODO: Calculate pace
-        leadChanges: null, // TODO: Calculate lead changes
-        viewers: Math.floor(Math.random() * 10000) + 1000, // Mock data
+        pace: null,
+        leadChanges: null,
+        viewers: Math.floor(Math.random() * 10000) + 1000,
       }
     })
 
