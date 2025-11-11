@@ -9,9 +9,9 @@ export async function GET(request: NextRequest) {
     connection: false,
     databaseUrl: false,
     gamesCount: 0,
-    sampleGame: null,
+    sampleGame: null as any,
     teamsCount: 0,
-    sampleTeams: [],
+    sampleTeams: [] as string[],
     error: null as string | null,
   }
 
