@@ -15,6 +15,13 @@ interface LiveStatsWidgetProps {
   refreshInterval?: number
 }
 
+interface RecentEvent {
+  team: string
+  event: string
+  time: string
+  type: 'r69' | 'win' | 'loss'
+}
+
 export function LiveStatsWidget({
   gameId,
   autoRefresh = true,
@@ -163,7 +170,7 @@ export function LiveStatsWidget({
 
           <div className="space-y-2">
             <AnimatePresence mode="popLayout">
-              {recentEvents.map((event, index) => (
+              {recentEvents.map((event: RecentEvent, index: number) => (
                 <motion.div
                   key={`${event.team}-${event.time}-${index}`}
                   initial={{ opacity: 0, x: -20 }}
