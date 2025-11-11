@@ -1,6 +1,9 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 // Server-Sent Events endpoint for real-time game updates
 export async function GET(
   request: NextRequest,

@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { League } from '@/types'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 // Teams with R69W% >= 69%
 export async function GET(request: NextRequest) {
   try {

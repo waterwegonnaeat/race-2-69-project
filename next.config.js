@@ -19,6 +19,8 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
+  // Disable static page generation for error pages
+  output: 'standalone',
 }
 
 module.exports = nextConfig

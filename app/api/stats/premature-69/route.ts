@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { League } from '@/types'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 // Hall of Shame - Teams that hit 69 first but lost
 export async function GET(request: NextRequest) {
   try {
