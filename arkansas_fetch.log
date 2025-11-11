@@ -1,0 +1,138 @@
+
+================================================================================
+🏀 ARKANSAS RAZORBACKS DATA FETCHER
+================================================================================
+
+This script fetches ONLY Arkansas Razorbacks basketball games
+Team ID: 8 (ESPN)
+
+================================================================================
+
+Detected current season: 2025-26
+
+Fetching 1 season(s) (from command line argument)
+WARNING:  invalid configuration parameter name "supautils.disable_program", removing it
+DETAIL:  "supautils" is now a reserved prefix.
+
+✅ Connected to database
+
+📅 Fetching 1 season(s) for Arkansas Razorbacks:
+  • 2025-26
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2025-26
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs Lipscomb Bisons: 76-60    ❌ Error inserting game: invalid input value for enum "League": "MENS"
+LINE 9: ...uuid(), '401711682', '2024-11-07T01:00Z', '2025-26', 'MENS',
+                                                                ^
+
+ - ❌ Failed to insert game
+  [2/33] (H) L vs Baylor Bears: 67-72    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [3/33] (H) W vs Troy Trojans: 65-49    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [4/33] (H) W vs Pacific Tigers: 91-72    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [5/33] (H) W vs Little Rock Trojans: 79-67    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [6/33] (H) W vs Maryland Eastern Shore Hawks: 109-35    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [7/33] (H) L vs Illinois Fighting Illini: 77-90    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [8/33] (A) W vs Miami Hurricanes: 76-73    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [9/33] (H) W vs UTSA Roadrunners: 75-60    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [10/33] (H) W vs Michigan Wolverines: 89-87    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [11/33] (H) W vs Central Arkansas Bears: 82-57    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [12/33] (H) W vs North Carolina A&T Aggies: 95-67    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [13/33] (H) W vs Oakland Golden Grizzlies: 92-62    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [14/33] (A) L vs Tennessee Volunteers: 52-76    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [15/33] (H) L vs Ole Miss Rebels: 66-73    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [16/33] (H) L vs Florida Gators: 63-71    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [17/33] (A) L vs LSU Tigers: 74-78    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [18/33] (A) L vs Missouri Tigers: 65-83    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [19/33] (H) W vs Georgia Bulldogs: 68-65    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [20/33] (H) L vs Oklahoma Sooners: 62-65    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [21/33] (A) W vs Kentucky Wildcats: 89-79    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [22/33] (A) W vs Texas Longhorns: 78-70    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [23/33] (H) L vs Alabama Crimson Tide: 81-85    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [24/33] (H) W vs LSU Tigers: 70-58    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [25/33] (A) L vs Texas A&M Aggies: 61-69    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [26/33] (A) L vs Auburn Tigers: 60-67    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [27/33] (H) W vs Missouri Tigers: 92-85    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [28/33] (H) W vs Texas Longhorns: 86-81    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [29/33] (A) L vs South Carolina Gamecocks: 53-72    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [30/33] (A) W vs Vanderbilt Commodores: 90-77    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [31/33] (H) W vs Mississippi State Bulldogs: 93-92    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [32/33] (H) W vs South Carolina Gamecocks: 72-68    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+  [33/33] (A) L vs Ole Miss Rebels: 80-83    ❌ Error inserting game: current transaction is aborted, commands ignored until end of transaction block
+
+ - ❌ Failed to insert game
+
+================================================================================
+📊 SUMMARY
+================================================================================
+Total games processed: 0
+Total R69 events: 0
+Total R69W: 0
+Total errors: 33
+================================================================================
+

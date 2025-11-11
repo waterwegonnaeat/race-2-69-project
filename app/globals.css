@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 25 35% 8%;
+    --foreground: 35 30% 95%;
+    --card: 25 30% 12%;
+    --card-foreground: 35 30% 95%;
+    --popover: 25 30% 10%;
+    --popover-foreground: 35 30% 95%;
+    --primary: 25 95% 60%;
+    --primary-foreground: 25 10% 10%;
+    --secondary: 30 40% 20%;
+    --secondary-foreground: 35 30% 95%;
+    --muted: 30 30% 18%;
+    --muted-foreground: 35 15% 65%;
+    --accent: 35 80% 55%;
+    --accent-foreground: 25 10% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 35 30% 95%;
+    --border: 30 25% 22%;
+    --input: 30 25% 22%;
+    --ring: 25 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Parallax and Modern Effects */
+@layer utilities {
+  .parallax-section {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .basketball-gradient {
+    background: linear-gradient(135deg, #FF8C42 0%, #FFA552 50%, #FFB366 100%);
+  }
+
+  .sunrise-gradient {
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 25%, #FFA552 50%, #FFD07B 75%, #FFF4E0 100%);
+  }
+
+  .court-gradient {
+    background: linear-gradient(135deg, #FF8C42 0%, #FFA552 50%, #FFBE7B 100%);
+  }
+
+  .glow-orange {
+    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.15), 0 2px 6px rgba(255, 165, 82, 0.1);
+  }
+
+  .glow-sunshine {
+    box-shadow: 0 4px 12px rgba(255, 208, 123, 0.15), 0 2px 6px rgba(255, 180, 102, 0.1);
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .slide-in-bottom {
+    animation: slide-in-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes slide-in-bottom {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fade-in 1s ease-in both;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .scale-in {
+    animation: scale-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes scale-in {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Basketball Court Pattern */
+  .court-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF8C42 0%, #FFA552 100%);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FFA552 0%, #FFB366 100%);
+  }
+}

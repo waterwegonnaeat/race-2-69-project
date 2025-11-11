@@ -1,0 +1,657 @@
+
+================================================================================
+🏀 ARKANSAS RAZORBACKS DATA FETCHER
+================================================================================
+
+This script fetches ONLY Arkansas Razorbacks basketball games
+Team ID: 8 (ESPN)
+
+================================================================================
+
+Detected current season: 2025-26
+
+Fetching 10 season(s) (from command line argument)
+WARNING:  invalid configuration parameter name "supautils.disable_program", removing it
+DETAIL:  "supautils" is now a reserved prefix.
+
+✅ Connected to database
+
+📅 Fetching 10 season(s) for Arkansas Razorbacks:
+  • 2016-17
+  • 2017-18
+  • 2018-19
+  • 2019-20
+  • 2020-21
+  • 2021-22
+  • 2022-23
+  • 2023-24
+  • 2024-25
+  • 2025-26
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2016-17
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 32 games
+
+  [1/32] (H) W vs Southern Jaguars: 86-68 - 🎯 R69W (Arkansas Razorbacks at +10)
+  [2/32] (H) L vs Akron Zips: 80-88 - 🎯 R69W (Akron Zips at +13)
+  [3/32] (H) W vs Charleston Southern Buccaneers: 93-75 - 🎯 R69W (Arkansas Razorbacks at +28)
+  [4/32] (A) L vs Georgia Tech Yellow Jackets: 73-83 - 🎯 R69W (Georgia Tech Yellow Jackets at +7)
+  [5/32] (A) L vs Stanford Cardinal: 66-69 - 🎯 R69W (Stanford Cardinal at +3)
+  [6/32] (H) W vs Northwestern State Demons: 117-78 - 🎯 R69W (Arkansas Razorbacks at +26)
+  [7/32] (A) L vs Wake Forest Demon Deacons: 85-88 - 🎯 R69W (Wake Forest Demon Deacons at +4)
+  [8/32] (H) W vs Evansville Purple Aces: 89-76 - 🎯 R69W (Arkansas Razorbacks at +14)
+  [9/32] (H) W vs Tennessee Tech Golden Eagles: 83-57 - 🎯 R69W (Arkansas Razorbacks at +21)
+  [10/32] (H) L vs Mercer Bears: 66-69 - 🎯 R69W (Mercer Bears at +3)
+  [11/32] (H) W vs North Florida Ospreys: 97-72 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [12/32] (A) L vs Dayton Flyers: 81-85 - 🎯 R69L (Arkansas Razorbacks at +2)
+  [13/32] (A) L vs Texas A&M Aggies: 69-92 - 🎯 R69W (Texas A&M Aggies at +29)
+  [14/32] (H) W vs Vanderbilt Commodores: 90-85 - 🎯 R69L (Vanderbilt Commodores at +2)
+  [15/32] (H) W vs Mississippi State Bulldogs: 82-68 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [16/32] (A) W vs Missouri Tigers: 94-61 - 🎯 R69W (Arkansas Razorbacks at +23)
+  [17/32] (A) L vs LSU Tigers: 74-76 - 🎯 R69W (LSU Tigers at +2)
+  [18/32] (H) L vs Kentucky Wildcats: 66-80 - 🎯 R69W (Kentucky Wildcats at +13)
+  [19/32] (A) L vs Georgia Bulldogs: 73-76 - 🎯 R69W (Georgia Bulldogs at +3)
+  [20/32] (H) W vs Texas A&M Aggies: 74-71 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [21/32] (H) W vs Texas Tech Red Raiders: 75-68 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [22/32] (A) L vs Florida Gators: 83-87 - 🎯 R69W (Florida Gators at +10)
+  [23/32] (H) W vs Tennessee Volunteers: 85-67 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [24/32] (A) L vs Mississippi State Bulldogs: 46-78 - 🎯 R69W (Mississippi State Bulldogs at +27)
+  [25/32] (A) L vs Ole Miss Rebels: 60-76 - 🎯 R69W (Ole Miss Rebels at +13)
+  [26/32] (H) L vs Auburn Tigers: 86-90 - 🎯 R69L (Arkansas Razorbacks at +5)
+  [27/32] (H) W vs Missouri Tigers: 84-72 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [28/32] (H) W vs LSU Tigers: 85-65 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [29/32] (A) W vs Tennessee Volunteers: 75-65 - 🎯 R69W (Arkansas Razorbacks at +10)
+  [30/32] (A) W vs Alabama Crimson Tide: 62-61 - No R69
+  [31/32] (H) L vs South Carolina Gamecocks: 61-76 - 🎯 R69W (South Carolina Gamecocks at +10)
+  [32/32] (A) L vs Florida Gators: 61-68 - No R69
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2017-18
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 34 games
+
+  [1/34] (H) W vs Purdue Fort Wayne Mastodons: 92-83 - No PBP data
+  [2/34] (H) W vs Southern Illinois Salukis: 90-65 - 🎯 R69W (Arkansas Razorbacks at +34)
+  [3/34] (H) W vs UT Arlington Mavericks: 71-67 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [4/34] (A) L vs Minnesota Golden Gophers: 71-85 - 🎯 R69W (Minnesota Golden Gophers at +21)
+  [5/34] (H) W vs Mount St. Mary's Mountaineers: 89-76 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [6/34] (H) W vs Stephen F. Austin Lumberjacks: 78-62 - 🎯 R69W (Arkansas Razorbacks at +19)
+  [7/34] (H) W vs Austin Peay Governors: 99-62 - 🎯 R69W (Arkansas Razorbacks at +32)
+  [8/34] (H) W vs Houston Cougars: 84-72 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [9/34] (H) W vs North Florida Ospreys: 91-76 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [10/34] (A) W vs Texas Longhorns: 77-74 - 🎯 R69W (Arkansas Razorbacks at +8)
+  [11/34] (H) W vs North Dakota State Bison: 71-55 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [12/34] (H) W vs Sam Houston Bearkats: 90-56 - 🎯 R69W (Arkansas Razorbacks at +29)
+  [13/34] (H) L vs Florida Gators: 72-81 - 🎯 R69W (Florida Gators at +12)
+  [14/34] (A) W vs Tennessee Volunteers: 82-78 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [15/34] (A) L vs Kentucky Wildcats: 71-97 - 🎯 R69W (Kentucky Wildcats at +14)
+  [16/34] (H) L vs Mississippi State Bulldogs: 78-84 - 🎯 R69W (Mississippi State Bulldogs at +8)
+  [17/34] (H) W vs Missouri Tigers: 92-73 - No PBP data
+  [18/34] (A) W vs Texas A&M Aggies: 62-60 - No R69
+  [19/34] (H) W vs LSU Tigers: 99-86 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [20/34] (A) W vs Vanderbilt Commodores: 71-70 - 🎯 R69L (Vanderbilt Commodores at +5)
+  [21/34] (A) L vs Oklahoma State Cowboys: 71-99 - 🎯 R69W (Oklahoma State Cowboys at +23)
+  [22/34] (H) W vs Alabama Crimson Tide: 87-68 - 🎯 R69W (Arkansas Razorbacks at +23)
+  [23/34] (A) L vs Missouri Tigers: 78-83 - 🎯 R69W (Missouri Tigers at +5)
+  [24/34] (H) L vs Vanderbilt Commodores: 59-72 - 🎯 R69W (Vanderbilt Commodores at +14)
+  [25/34] (A) W vs LSU Tigers: 78-70 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [26/34] (A) W vs South Carolina Gamecocks: 83-76 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [27/34] (H) W vs Ole Miss Rebels: 98-80 - 🎯 R69W (Arkansas Razorbacks at +18)
+  [28/34] (H) W vs Texas A&M Aggies: 86-77 - 🎯 R69W (Arkansas Razorbacks at +6)
+  [29/34] (A) W vs Auburn Tigers: 79-68 - No PBP data
+  [30/34] (A) L vs Florida Gators: 65-78 - 🎯 R69W (Florida Gators at +8)
+  [31/34] (H) W vs Georgia Bulldogs: 85-67 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [32/34] (H) W vs Ole Miss Rebels: 73-72 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [33/34] (H) W vs Vanderbilt Commodores: 76-62 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [34/34] (A) L vs Kentucky Wildcats: 65-82 - 🎯 R69W (Kentucky Wildcats at +14)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2018-19
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 34 games
+
+  [1/34] (H) W vs Samford Bulldogs: 95-56 - 🎯 R69W (Arkansas Razorbacks at +43)
+  [2/34] (H) W vs Bucknell Bison: 101-73 - 🎯 R69W (Arkansas Razorbacks at +21)
+  [3/34] (H) W vs Fresno State Bulldogs: 83-75 - 🎯 R69W (Arkansas Razorbacks at +17)
+  [4/34] (A) W vs Oklahoma Sooners: 92-83 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [5/34] (H) L vs North Carolina Tar Heels: 68-87 - 🎯 R69W (North Carolina Tar Heels at +15)
+  [6/34] (A) W vs UConn Huskies: 102-67 - 🎯 R69W (Arkansas Razorbacks at +29)
+  [7/34] (A) L vs Houston Cougars: 65-91    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [8/34] (H) W vs Colorado State Rams: 92-66 - 🎯 R69W (Arkansas Razorbacks at +23)
+  [9/34] (H) W vs Minnesota Golden Gophers: 95-79 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [10/34] (H) W vs Troy Trojans: 88-63 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [11/34] (H) W vs Oral Roberts Golden Eagles: 104-69 - 🎯 R69W (Arkansas Razorbacks at +40)
+  [12/34] (H) W vs Cal State Bakersfield Roadrunners: 95-68 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [13/34] (H) W vs Tennessee Volunteers: 95-93 - 🎯 R69L (Tennessee Volunteers at +8)
+  [14/34] (A) L vs Mississippi State Bulldogs: 75-78 - 🎯 R69W (Mississippi State Bulldogs at +2)
+  [15/34] (A) L vs Auburn Tigers: 77-88 - 🎯 R69W (Auburn Tigers at +18)
+  [16/34] (H) L vs LSU Tigers: 54-75 - 🎯 R69W (LSU Tigers at +22)
+  [17/34] (H) W vs Missouri Tigers: 65-63 - No R69
+  [18/34] (A) L vs Florida Gators: 73-88 - 🎯 R69W (Florida Gators at +14)
+  [19/34] (H) W vs Ole Miss Rebels: 97-93 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [20/34] (A) W vs Georgia Bulldogs: 80-77 - 🎯 R69W (Arkansas Razorbacks at +3)
+  [21/34] (H) W vs Oklahoma State Cowboys: 66-65 - No R69
+  [22/34] (A) L vs Texas A&M Aggies: 66-80 - 🎯 R69W (Texas A&M Aggies at +13)
+  [23/34] (A) L vs LSU Tigers: 86-94 - 🎯 R69W (LSU Tigers at +7)
+  [24/34] (H) W vs South Carolina Gamecocks: 81-65 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [25/34] (H) W vs Vanderbilt Commodores: 72-54    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [26/34] (A) W vs Ole Miss Rebels: 75-64 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [27/34] (H) W vs Texas A&M Aggies: 94-75 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [28/34] (H) L vs Kentucky Wildcats: 72-87 - 🎯 R69W (Kentucky Wildcats at +5)
+  [29/34] (A) W vs Alabama Crimson Tide: 76-73 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [30/34] (H) W vs Auburn Tigers: 91-82 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [31/34] (A) L vs Missouri Tigers: 67-77 - 🎯 R69W (Missouri Tigers at +8)
+  [32/34] (H) W vs South Carolina Gamecocks: 69-64 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [33/34] (A) W vs Florida Gators: 80-72 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [34/34] (A) L vs Tennessee Volunteers: 66-84 - 🎯 R69W (Tennessee Volunteers at +16)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2019-20
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 32 games
+
+  [1/32] (A) L vs Texas Longhorns: 71-73    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [2/32] (H) W vs UC Davis Aggies: 81-58    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [3/32] (H) W vs Indiana Hoosiers: 73-72    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [4/32] (H) W vs Montana State Bobcats: 90-68    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [5/32] (H) W vs UT Arlington Mavericks: 78-60    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [6/32] (H) W vs Florida International Panthers: 121-89    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [7/32] (A) W vs Colorado State Rams: 98-74    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [8/32] (H) L vs Western Kentucky Hilltoppers: 77-78    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [9/32] (H) W vs UTSA Roadrunners: 79-67    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [10/32] (H) L vs Georgia Tech Yellow Jackets: 65-69    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [11/32] (H) W vs Texas State Bobcats: 73-70    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [12/32] (H) W vs Austin Peay Governors: 76-65    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [13/32] (A) W vs Texas A&M Aggies: 73-71    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [14/32] (H) L vs Florida Gators: 51-57    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [15/32] (H) L vs LSU Tigers: 88-94    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [16/32] (A) L vs Tennessee Volunteers: 87-106    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [17/32] (A) L vs Ole Miss Rebels: 67-84    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [18/32] (H) W vs Missouri Tigers: 72-60    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [19/32] (A) L vs Texas Tech Red Raiders: 64-67    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [20/32] (H) W vs Georgia Bulldogs: 70-60    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [21/32] (A) W vs LSU Tigers: 90-89    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [22/32] (H) W vs Vanderbilt Commodores: 69-66    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [23/32] (A) L vs South Carolina Gamecocks: 65-77    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [24/32] (A) L vs Missouri Tigers: 78-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [25/32] (H) L vs Mississippi State Bulldogs: 67-77    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [26/32] (A) L vs Auburn Tigers: 56-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [27/32] (H) L vs Texas A&M Aggies: 80-87    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [28/32] (A) L vs Kentucky Wildcats: 66-70    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [29/32] (H) W vs Ole Miss Rebels: 74-73    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [30/32] (A) W vs Vanderbilt Commodores: 84-48    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [31/32] (H) W vs Alabama Crimson Tide: 82-70    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [32/32] (A) L vs Florida Gators: 50-66    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2020-21
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs Rice Owls: 91-43    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [2/33] (H) W vs North Texas Mean Green: 66-43    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [3/33] (H) W vs Montana Grizzlies: 64-46    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [4/33] (H) W vs Texas Southern Tigers: 82-51    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [5/33] (H) W vs South Dakota Coyotes: 77-56    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [6/33] (A) W vs Georgia Tech Yellow Jackets: 62-61    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [7/33] (H) W vs Northern Kentucky Norse: 66-60    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [8/33] (H) W vs Austin Peay Governors: 69-61    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [9/33] (A) L vs Western Kentucky Hilltoppers: 79-86    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [10/33] (H) W vs Tulsa Golden Hurricane: 98-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [11/33] (H) W vs Valparaiso Beacons: 72-68    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [12/33] (A) W vs Indiana Hoosiers: 71-64    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [13/33] (H) W vs Texas A&M Aggies: 69-59    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [14/33] (A) L vs LSU Tigers: 77-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [15/33] (A) W vs Ole Miss Rebels: 76-72    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [16/33] (H) W vs Vanderbilt Commodores: 75-55    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [17/33] (H) L vs Kentucky Wildcats: 66-73    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [18/33] (A) L vs Mississippi State Bulldogs: 70-77    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [19/33] (H) W vs TCU Horned Frogs: 78-67    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [20/33] (H) L vs South Carolina Gamecocks: 77-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [21/33] (A) W vs Alabama Crimson Tide: 82-78    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [22/33] (H) L vs Auburn Tigers: 76-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [23/33] (A) L vs Missouri Tigers: 79-83    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [24/33] (A) L vs Tennessee Volunteers: 61-82    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [25/33] (H) L vs Mississippi State Bulldogs: 77-78    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [26/33] (A) L vs Florida Gators: 59-73    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [27/33] (H) W vs Missouri Tigers: 78-68    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [28/33] (H) W vs Tennessee Volunteers: 86-69    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [29/33] (A) L vs Georgia Bulldogs: 89-99    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [30/33] (H) W vs LSU Tigers: 99-90    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [31/33] (A) L vs Texas A&M Aggies: 69-77    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [32/33] (H) W vs Vanderbilt Commodores: 86-73    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [33/33] (A) vs South Carolina Gamecocks: Canceled [STATUS_CANCELED] - Skipping (not final)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2021-22
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 31 games
+
+  [1/31] (H) W vs Mississippi Valley State Delta Devils: 142-62 - 🎯 R69W (Arkansas Razorbacks at +39)
+  [2/31] (H) W vs North Texas Mean Green: 69-54 - 🎯 R69W (Arkansas Razorbacks at +19)
+  [3/31] (H) W vs UT Arlington Mavericks: 72-60 - 🎯 R69W (Arkansas Razorbacks at +18)
+  [4/31] (H) W vs Lipscomb Bisons: 86-50 - 🎯 R69W (Arkansas Razorbacks at +34)
+  [5/31] (A) vs Tulsa Golden Hurricane: Canceled [STATUS_CANCELED] - Skipping (not final)
+  [6/31] (H) W vs Southern Jaguars: 79-44    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [7/31] (H) W vs Central Arkansas Bears: 100-75 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [8/31] (H) W vs Oral Roberts Golden Eagles: 87-76 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [9/31] (H) W vs Abilene Christian Wildcats: 85-72 - 🎯 R69W (Arkansas Razorbacks at +19)
+  [10/31] (A) W vs Auburn Tigers: 97-85 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [11/31] (H) L vs Missouri Tigers: 68-81 - No PBP data
+  [12/31] (A) L vs Tennessee Volunteers: 74-79 - 🎯 R69W (Tennessee Volunteers at +8)
+  [13/31] (H) W vs Georgia Bulldogs: 99-69 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [14/31] (A) L vs LSU Tigers: 76-92 - 🎯 R69W (LSU Tigers at +25)
+  [15/31] (A) L vs Alabama Crimson Tide: 59-90 - 🎯 R69W (Alabama Crimson Tide at +32)
+  [16/31] (H) W vs Auburn Tigers: 75-73 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [17/31] (A) W vs Vanderbilt Commodores: 92-71    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [18/31] (H) W vs Ole Miss Rebels: 74-59 - 🎯 R69W (Arkansas Razorbacks at +17)
+  [19/31] (A) L vs Oklahoma State Cowboys: 77-81 - 🎯 R69L (Arkansas Razorbacks at +5)
+  [20/31] (H) W vs Mississippi State Bulldogs: 61-45 - No R69
+  [21/31] (H) vs Texas A&M Aggies: Postponed [STATUS_POSTPONED] - Skipping (not final)
+  [22/31] (A) W vs Kentucky Wildcats: 81-80 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [23/31] (A) W vs Missouri Tigers: 86-81 - 🎯 R69W (Arkansas Razorbacks at +3)
+  [24/31] (H) W vs Florida Gators: 75-64 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [25/31] (A) vs Texas A&M Aggies: Canceled [STATUS_CANCELED] - Skipping (not final)
+  [26/31] (H) W vs Alabama Crimson Tide: 81-66 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [27/31] (H) W vs LSU Tigers: 83-75 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [28/31] (A) W vs South Carolina Gamecocks: 101-73 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [29/31] (H) W vs Texas A&M Aggies: 87-80 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [30/31] (H) W vs Missouri Tigers: 70-64 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [31/31] (H) L vs LSU Tigers: 71-78 - 🎯 R69W (LSU Tigers at +10)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2022-23
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs Mercer Bears: 74-61 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [2/33] (H) W vs Gardner-Webb Runnin' Bulldogs: 86-69 - 🎯 R69W (Arkansas Razorbacks at +26)
+  [3/33] (H) W vs Northern Iowa Panthers: 93-80 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [4/33] (A) W vs Kansas State Wildcats: 72-64 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [5/33] (H) W vs Cincinnati Bearcats: 73-67 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [6/33] (H) W vs Pennsylvania Quakers: 76-60 - 🎯 R69W (Arkansas Razorbacks at +14)
+  [7/33] (H) W vs Central Arkansas Bears: 97-60 - 🎯 R69W (Arkansas Razorbacks at +24)
+  [8/33] (H) W vs Little Rock Trojans: 93-78 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [9/33] (H) W vs Charlotte 49ers: 86-66 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [10/33] (A) L vs Oklahoma Sooners: 66-88 - 🎯 R69W (Oklahoma Sooners at +12)
+  [11/33] (H) L vs Hofstra Pride: 81-89    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [12/33] (H) W vs Elon Phoenix: 81-55 - 🎯 R69W (Arkansas Razorbacks at +18)
+  [13/33] (A) L vs Mississippi State Bulldogs: 68-81 - 🎯 R69W (Mississippi State Bulldogs at +15)
+  [14/33] (H) L vs Vanderbilt Commodores: 74-75 - 🎯 R69W (Vanderbilt Commodores at +4)
+  [15/33] (A) L vs Texas A&M Aggies: 81-86 - 🎯 R69W (Texas A&M Aggies at +12)
+  [16/33] (H) W vs Missouri Tigers: 87-43 - 🎯 R69W (Arkansas Razorbacks at +37)
+  [17/33] (A) W vs LSU Tigers: 65-58 - No R69
+  [18/33] (H) W vs South Carolina Gamecocks: 75-59 - 🎯 R69W (Arkansas Razorbacks at +13)
+  [19/33] (H) W vs Texas A&M Aggies: 76-73 - 🎯 R69W (Arkansas Razorbacks at +1)
+  [20/33] (A) W vs Ole Miss Rebels: 64-55 - No R69
+  [21/33] (H) W vs West Virginia Mountaineers: 77-68 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [22/33] (A) W vs Georgia Bulldogs: 99-73 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [23/33] (H) W vs Mississippi State Bulldogs: 63-55 - No R69
+  [24/33] (H) W vs Auburn Tigers: 80-76 - 🎯 R69W (Arkansas Razorbacks at +1)
+  [25/33] (A) L vs Alabama Crimson Tide: 67-68 - No R69
+  [26/33] (A) W vs Missouri Tigers: 76-57 - 🎯 R69W (Arkansas Razorbacks at +18)
+  [27/33] (H) W vs Tennessee Volunteers: 58-48 - No R69
+  [28/33] (A) W vs Florida Gators: 82-74 - 🎯 R69W (Arkansas Razorbacks at +4)
+  [29/33] (H) W vs Kentucky Wildcats: 75-73 - 🎯 R69W (Arkansas Razorbacks at +4)
+  [30/33] (H) W vs LSU Tigers: 77-76 - 🎯 R69L (LSU Tigers at +4)
+  [31/33] (A) L vs Tennessee Volunteers: 74-78 - 🎯 R69W (Tennessee Volunteers at +17)
+  [32/33] (H) W vs LSU Tigers: 79-67 - 🎯 R69W (Arkansas Razorbacks at +14)
+  [33/33] (H) L vs Texas A&M Aggies: 64-82 - 🎯 R69W (Texas A&M Aggies at +18)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2023-24
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs North Dakota State Bison: 76-58 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [2/33] (H) W vs Fordham Rams: 74-48 - 🎯 R69W (Arkansas Razorbacks at +24)
+  [3/33] (H) W vs South Dakota State Jackrabbits: 71-56 - 🎯 R69W (Arkansas Razorbacks at +22)
+  [4/33] (H) W vs Louisville Cardinals: 80-54 - 🎯 R69W (Arkansas Razorbacks at +27)
+  [5/33] (H) L vs Creighton Bluejays: 87-90 - 🎯 R69W (Creighton Bluejays at +6)
+  [6/33] (A) W vs San Diego State Aztecs: 78-74 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [7/33] (H) W vs Troy Trojans: 74-61 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [8/33] (H) W vs San José State Spartans: 99-58    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [9/33] (H) W vs UNC Greensboro Spartans: 65-58 - No R69
+  [10/33] (H) W vs Oklahoma Sooners: 88-78 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [11/33] (H) W vs Bradley Braves: 76-57 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [12/33] (H) W vs UNC Asheville Bulldogs: 85-51 - 🎯 R69W (Arkansas Razorbacks at +28)
+  [13/33] (A) L vs LSU Tigers: 57-60 - No R69
+  [14/33] (H) W vs Missouri Tigers: 74-68    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [15/33] (A) L vs Auburn Tigers: 59-72 - 🎯 R69W (Auburn Tigers at +11)
+  [16/33] (H) L vs Alabama Crimson Tide: 69-84 - 🎯 R69W (Alabama Crimson Tide at +8)
+  [17/33] (A) L vs Vanderbilt Commodores: 84-97 - 🎯 R69W (Vanderbilt Commodores at +10)
+  [18/33] (A) L vs Missouri Tigers: 76-79    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [19/33] (H) W vs Ole Miss Rebels: 69-57 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [20/33] (H) W vs LSU Tigers: 60-40 - No R69
+  [21/33] (A) L vs Baylor Bears: 64-67 - No R69
+  [22/33] (H) W vs Texas A&M Aggies: 81-70 - 🎯 R69W (Arkansas Razorbacks at +6)
+  [23/33] (A) W vs South Carolina Gamecocks: 65-63 - No R69
+  [24/33] (A) W vs Kentucky Wildcats: 88-73 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [25/33] (H) L vs Mississippi State Bulldogs: 64-70 - 🎯 R69W (Mississippi State Bulldogs at +5)
+  [26/33] (A) L vs Texas A&M Aggies: 56-62 - No R69
+  [27/33] (H) W vs Florida Gators: 84-65 - 🎯 R69W (Arkansas Razorbacks at +20)
+  [28/33] (H) W vs Georgia Bulldogs: 97-65 - 🎯 R69W (Arkansas Razorbacks at +26)
+  [29/33] (A) L vs Alabama Crimson Tide: 83-86 - 🎯 R69W (Alabama Crimson Tide at +8)
+  [30/33] (A) L vs Tennessee Volunteers: 57-75 - 🎯 R69W (Tennessee Volunteers at +21)
+  [31/33] (H) L vs Kentucky Wildcats: 79-88 - 🎯 R69W (Kentucky Wildcats at +9)
+  [32/33] (A) W vs Auburn Tigers: 76-73 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [33/33] (A) L vs Texas A&M Aggies: 61-67 - No R69
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2024-25
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs Alcorn State Braves: 93-59 - 🎯 R69W (Arkansas Razorbacks at +30)
+  [2/33] (H) W vs Gardner-Webb Runnin' Bulldogs: 86-68 - 🎯 R69W (Arkansas Razorbacks at +23)
+  [3/33] (H) W vs Old Dominion Monarchs: 86-77 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [4/33] (H) L vs UNC Greensboro Spartans: 72-78 - 🎯 R69W (UNC Greensboro Spartans at +11)
+  [5/33] (H) W vs Stanford Cardinal: 77-74 - 🎯 R69W (Arkansas Razorbacks at +3)
+  [6/33] (A) L vs Memphis Tigers: 79-84    ⚠ Server error 502 (attempt 1/3), retrying...
+    ⚠ Server error 502 (attempt 2/3), retrying...
+    ❌ Server error 502 after 3 attempts
+ - ❌ Failed to fetch details
+  [7/33] (A) L vs North Carolina Tar Heels: 72-87 - 🎯 R69W (North Carolina Tar Heels at +8)
+  [8/33] (H) W vs Duke Blue Devils: 80-75 - 🎯 R69W (Arkansas Razorbacks at +12)
+  [9/33] (H) W vs Furman Paladins: 97-83 - 🎯 R69W (Arkansas Razorbacks at +18)
+  [10/33] (A) L vs Oklahoma Sooners: 70-79 - 🎯 R69W (Oklahoma Sooners at +17)
+  [11/33] (H) W vs Lipscomb Bisons: 69-66 - 🎯 R69W (Arkansas Razorbacks at +3)
+  [12/33] (H) W vs Abilene Christian Wildcats: 83-73 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [13/33] (H) W vs UNC Wilmington Seahawks: 106-90 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [14/33] (H) L vs Auburn Tigers: 51-83 - 🎯 R69W (Auburn Tigers at +23)
+  [15/33] (A) L vs Georgia Bulldogs: 66-76 - 🎯 R69W (Georgia Bulldogs at +7)
+  [16/33] (A) L vs Florida Gators: 68-90 - 🎯 R69W (Florida Gators at +19)
+  [17/33] (H) W vs Texas A&M Aggies: 78-77 - 🎯 R69W (Arkansas Razorbacks at +10)
+  [18/33] (H) L vs South Carolina Gamecocks: 64-77 - 🎯 R69W (South Carolina Gamecocks at +18)
+  [19/33] (A) L vs Ole Miss Rebels: 51-77 - 🎯 R69W (Ole Miss Rebels at +26)
+  [20/33] (H) L vs Kentucky Wildcats: 57-63 - No R69
+  [21/33] (A) W vs Missouri Tigers: 91-84 - 🎯 R69W (Arkansas Razorbacks at +19)
+  [22/33] (A) L vs LSU Tigers: 74-95 - 🎯 R69W (LSU Tigers at +23)
+  [23/33] (H) W vs Georgia Bulldogs: 78-75 - 🎯 R69W (Arkansas Razorbacks at +1)
+  [24/33] (H) L vs Tennessee Volunteers: 63-92 - 🎯 R69W (Tennessee Volunteers at +20)
+  [25/33] (A) L vs Mississippi State Bulldogs: 67-71 - 🎯 R69W (Mississippi State Bulldogs at +2)
+  [26/33] (A) W vs Texas A&M Aggies: 78-71 - 🎯 R69W (Arkansas Razorbacks at +8)
+  [27/33] (H) W vs Missouri Tigers: 88-73 - 🎯 R69W (Arkansas Razorbacks at +10)
+  [28/33] (H) L vs Vanderbilt Commodores: 82-85 - 🎯 R69W (Vanderbilt Commodores at +16)
+  [29/33] (A) L vs Kentucky Wildcats: 102-111 - 🎯 R69W (Kentucky Wildcats at +5)
+  [30/33] (H) W vs LSU Tigers: 94-83 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [31/33] (A) L vs Alabama Crimson Tide: 88-92 - 🎯 R69L (Arkansas Razorbacks at +5)
+  [32/33] (H) W vs Vanderbilt Commodores: 90-85 - 🎯 R69W (Arkansas Razorbacks at +2)
+  [33/33] (A) L vs South Carolina Gamecocks: 66-80 - 🎯 R69W (South Carolina Gamecocks at +18)
+
+────────────────────────────────────────────────────────────────────────────────
+📅 Season: 2025-26
+────────────────────────────────────────────────────────────────────────────────
+  Fetching schedule from ESPN API...
+  Found 33 games
+
+  [1/33] (H) W vs Lipscomb Bisons: 76-60 - 🎯 R69W (Arkansas Razorbacks at +13)
+  [2/33] (H) L vs Baylor Bears: 67-72 - 🎯 R69W (Baylor Bears at +5)
+  [3/33] (H) W vs Troy Trojans: 65-49 - No R69
+  [4/33] (H) W vs Pacific Tigers: 91-72 - 🎯 R69W (Arkansas Razorbacks at +8)
+  [5/33] (H) W vs Little Rock Trojans: 79-67 - 🎯 R69W (Arkansas Razorbacks at +14)
+  [6/33] (H) W vs Maryland Eastern Shore Hawks: 109-35 - 🎯 R69W (Arkansas Razorbacks at +52)
+  [7/33] (H) L vs Illinois Fighting Illini: 77-90 - 🎯 R69W (Illinois Fighting Illini at +12)
+  [8/33] (A) W vs Miami Hurricanes: 76-73 - 🎯 R69L (Miami Hurricanes at +5)
+  [9/33] (H) W vs UTSA Roadrunners: 75-60 - 🎯 R69W (Arkansas Razorbacks at +14)
+  [10/33] (H) W vs Michigan Wolverines: 89-87 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [11/33] (H) W vs Central Arkansas Bears: 82-57 - 🎯 R69W (Arkansas Razorbacks at +31)
+  [12/33] (H) W vs North Carolina A&T Aggies: 95-67 - 🎯 R69W (Arkansas Razorbacks at +32)
+  [13/33] (H) W vs Oakland Golden Grizzlies: 92-62 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [14/33] (A) L vs Tennessee Volunteers: 52-76 - 🎯 R69W (Tennessee Volunteers at +22)
+  [15/33] (H) L vs Ole Miss Rebels: 66-73 - 🎯 R69W (Ole Miss Rebels at +9)
+  [16/33] (H) L vs Florida Gators: 63-71 - 🎯 R69W (Florida Gators at +12)
+  [17/33] (A) L vs LSU Tigers: 74-78 - 🎯 R69W (LSU Tigers at +5)
+  [18/33] (A) L vs Missouri Tigers: 65-83 - 🎯 R69W (Missouri Tigers at +13)
+  [19/33] (H) W vs Georgia Bulldogs: 68-65 - No R69
+  [20/33] (H) L vs Oklahoma Sooners: 62-65 - No R69
+  [21/33] (A) W vs Kentucky Wildcats: 89-79 - 🎯 R69W (Arkansas Razorbacks at +9)
+  [22/33] (A) W vs Texas Longhorns: 78-70 - 🎯 R69W (Arkansas Razorbacks at +8)
+  [23/33] (H) L vs Alabama Crimson Tide: 81-85 - 🎯 R69W (Alabama Crimson Tide at +16)
+  [24/33] (H) W vs LSU Tigers: 70-58 - 🎯 R69W (Arkansas Razorbacks at +11)
+  [25/33] (A) L vs Texas A&M Aggies: 61-69 - 🎯 R69W (Texas A&M Aggies at +10)
+  [26/33] (A) L vs Auburn Tigers: 60-67 - No R69
+  [27/33] (H) W vs Missouri Tigers: 92-85 - 🎯 R69W (Arkansas Razorbacks at +7)
+  [28/33] (H) W vs Texas Longhorns: 86-81 - 🎯 R69L (Texas Longhorns at +1)
+  [29/33] (A) L vs South Carolina Gamecocks: 53-72 - 🎯 R69W (South Carolina Gamecocks at +25)
+  [30/33] (A) W vs Vanderbilt Commodores: 90-77 - 🎯 R69W (Arkansas Razorbacks at +15)
+  [31/33] (H) W vs Mississippi State Bulldogs: 93-92 - 🎯 R69W (Arkansas Razorbacks at +16)
+  [32/33] (H) W vs South Carolina Gamecocks: 72-68 - 🎯 R69W (Arkansas Razorbacks at +5)
+  [33/33] (A) L vs Ole Miss Rebels: 80-83 - 🎯 R69W (Ole Miss Rebels at +4)
+
+================================================================================
+📊 SUMMARY
+================================================================================
+Total games processed: 251
+Total R69 events: 224
+Total R69W: 214
+R69W Rate: 95.5%
+Total errors: 73
+================================================================================
+

@@ -1,0 +1,45 @@
+# docker-compose.yml for R69W Dashboard (Optional - for self-hosting only)
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: r69w-database
+    restart: always
+    environment:
+      POSTGRES_USER: r69w_user
+      POSTGRES_PASSWORD: changeme_in_production
+      POSTGRES_DB: r69w_dashboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U r69w_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Next.js Web Application
+  web:
+    build: .
+    container_name: r69w-web
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://r69w_user:changeme_in_production@db:5432/r69w_dashboard?sslmode=disable
+      - NODE_ENV=production
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+
+# To use:
+# 1. docker-compose up -d
+# 2. docker-compose exec web npx prisma db push
+# 3. docker-compose exec web node scripts/fetch_historical_data.py

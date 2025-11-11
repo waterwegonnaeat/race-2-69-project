@@ -1,0 +1,198 @@
+// Prisma Schema for R69W Dashboard
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// CORE MODELS
+// ============================================
+
+model Game {
+  id        String   @id @default(uuid())
+  gameId    String   @unique @map("game_id") // ESPN game ID
+  gameDate  DateTime @map("game_date") @db.Date
+  season    String   // "2024-25"
+  league    League   // mens or womens
+
+  // Teams
+  homeTeamId     String  @map("home_team_id")
+  awayTeamId     String  @map("away_team_id")
+  homeTeamName   String  @map("home_team_name")
+  awayTeamName   String  @map("away_team_name")
+  homeConference String? @map("home_conference")
+  awayConference String? @map("away_conference")
+  homeTeamLogo   String? @map("home_team_logo")
+  awayTeamLogo   String? @map("away_team_logo")
+
+  // Game details
+  venue    String?
+  gameType GameType @default(REGULAR) @map("game_type")
+
+  // Scores
+  homeScore   Int? @map("home_score")
+  awayScore   Int? @map("away_score")
+  finalMargin Int? @map("final_margin")
+
+  // Status
+  gameStatus    GameStatus @default(SCHEDULED) @map("game_status")
+  totalPeriods  Int        @default(2) @map("total_periods")
+  overtimeFlag  Boolean    @default(false) @map("overtime_flag")
+
+  // Timestamps
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  r69Events   R69Event[]
+  pbpEvents   PBPEvent[]
+  analytics   R69Analytics?
+
+  @@index([gameDate(sort: Desc)])
+  @@index([gameStatus])
+  @@index([league])
+  @@index([season])
+  @@map("games")
+}
+
+model R69Event {
+  id     String @id @default(uuid())
+  gameId String @map("game_id")
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  // Team that hit 69 first
+  teamId   String @map("team_id")
+  teamName String @map("team_name")
+
+  // R69 metrics
+  tTo69        Int @map("t_to_69") // seconds elapsed
+  periodAt69   Int @map("period_at_69")
+  marginAt69   Int @map("margin_at_69")
+  scoreAt69Team     Int @default(69) @map("score_at_69_team")
+  scoreAt69Opponent Int @map("score_at_69_opponent")
+
+  // Outcome
+  r69w        Boolean @map("r69w") // true if won after hitting 69 first
+  finalMargin Int?    @map("final_margin")
+
+  // Context
+  playDescription String? @map("play_description") @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([teamId])
+  @@index([gameId])
+  @@map("r69_events")
+}
+
+model PBPEvent {
+  id     String @id @default(uuid())
+  gameId String @map("game_id")
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  sequenceNumber Int @map("sequence_number")
+  period         Int
+  clockSeconds   Int @map("clock_seconds") // seconds remaining in period
+  elapsedSeconds Int @map("elapsed_seconds") // total seconds from game start
+
+  // Play details
+  teamId     String? @map("team_id")
+  playerName String? @map("player_name")
+  eventType  String  @map("event_type") // shot_made, shot_missed, free_throw, etc
+  pointsScored Int   @default(0) @map("points_scored")
+
+  // Score state
+  homeScore Int @map("home_score")
+  awayScore Int @map("away_score")
+
+  description String @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([gameId, sequenceNumber])
+  @@index([gameId, sequenceNumber])
+  @@map("pbp_events")
+}
+
+model Team {
+  id       String @id @default(uuid())
+  teamId   String @map("team_id") // ESPN team ID
+  teamName String @map("team_name")
+  conference String?
+  league   League
+  season   String
+
+  // Aggregate stats
+  gamesPlayed   Int     @default(0) @map("games_played")
+  r69Wins       Int     @default(0) @map("r69_wins")
+  r69Losses     Int     @default(0) @map("r69_losses")
+  avgTTo69      Decimal? @map("avg_t_to_69") @db.Decimal(10, 2)
+  avgMarginAt69 Decimal? @map("avg_margin_at_69") @db.Decimal(10, 2)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([teamId, season])
+  @@index([league, season])
+  @@map("teams")
+}
+
+model R69Analytics {
+  id     String @id @default(uuid())
+  gameId String @unique @map("game_id")
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  // Derived metrics
+  r69PaceIndex     Decimal? @map("r69_pace_index") @db.Decimal(5, 4)
+  r69LeadDuration  Int?     @map("r69_lead_duration") // seconds
+  r69SwingMargin   Int?     @map("r69_swing_margin")
+  comeback69L      Boolean  @default(false) @map("comeback_69l")
+
+  // Special events
+  niceScore   Boolean @default(false) @map("nice_score")
+  doubleNice  Boolean @default(false) @map("double_nice")
+
+  // Possession stats
+  homePossessions Int?     @map("home_possessions")
+  awayPossessions Int?     @map("away_possessions")
+  paceRating      Decimal? @map("pace_rating") @db.Decimal(5, 2)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("r69_analytics")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum League {
+  MENS   @map("mens")
+  WOMENS @map("womens")
+}
+
+enum GameType {
+  REGULAR     @map("regular")
+  CONFERENCE  @map("conference")
+  TOURNAMENT  @map("tournament")
+}
+
+enum GameStatus {
+  SCHEDULED   @map("scheduled")
+  IN_PROGRESS @map("in_progress")
+  FINAL       @map("final")
+  POSTPONED   @map("postponed")
+  CANCELED    @map("canceled")
+}
+
+// ============================================
+// DATABASE VIEWS
+// ============================================
+// Note: These views should be created manually in PostgreSQL
+// See VIEWS.sql file for the SQL commands

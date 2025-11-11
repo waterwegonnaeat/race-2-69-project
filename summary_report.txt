@@ -1,0 +1,105 @@
+=================================================================================
+INVESTIGATION REPORT: Arkansas Razorbacks 2025-26 Season - Zero Results Bug
+=================================================================================
+
+USER ISSUE:
+-----------
+When selecting "Arkansas Razorbacks" with season "2025-26", the user gets zero 
+results even though data exists in the database.
+
+ROOT CAUSE ANALYSIS:
+-------------------
+
+1. DATABASE STATE:
+   - There are 15 games in the database labeled as season "2025-26" for Arkansas
+   - However, 12 of these games have INCORRECT season labels
+   - Games from December 2024 through March 2025 are incorrectly labeled as "2025-26"
+   - They should be labeled as "2024-25" based on basketball season logic
+
+   Examples of INCORRECT data:
+   - 2024-12-04: Stored as "2025-26" (should be "2024-25")
+   - 2025-01-15: Stored as "2025-26" (should be "2024-25")  
+   - 2025-03-05: Stored as "2025-26" (should be "2024-25")
+   
+   Examples of CORRECT data:
+   - 2025-11-04: Stored as "2024-25" (should be "2025-26") - WRONG!
+   - 2025-11-09: Stored as "2024-25" (should be "2025-26") - WRONG!
+
+2. API FILTERING LOGIC BUG:
+   File: app/api/teams/[teamName]/games/route.ts (lines 26-47)
+   
+   The API adds a date range filter that is TOO RESTRICTIVE:
+   
+   For season "2025-26":
+   - Expects games between: 2025-11-01 and 2026-04-30
+   - This EXCLUDES all March 2025 games (like 2025-03-05)
+   
+   The API uses AND logic combining:
+   a) season = "2025-26" 
+   b) gameDate >= 2025-11-01 AND gameDate <= 2026-04-30
+   
+   Result: Zero games match because:
+   - Games with dates in the expected range (Nov 2025) are labeled "2024-25"
+   - Games labeled "2025-26" have dates outside the expected range (Dec 2024 - Mar 2025)
+
+3. SEASON CALCULATION LOGIC:
+   The Python script (fetch_historical_data.py, lines 126-135) has CORRECT logic:
+   
+   - If month >= 9: season = "{year}-{year+1}"
+   - If month < 9: season = "{year-1}-{year}"
+   
+   This means:
+   - Games from Sept 2024 - Aug 2025 should be "2024-25"
+   - Games from Sept 2025 - Aug 2026 should be "2025-26"
+
+4. WHY DATA IS INCORRECT:
+   The Python script calls insert_game() WITHOUT passing the season parameter when
+   fetching by seasons (lines 576, 671). This should use the auto-calculated season
+   which is correct. However, the database contains incorrect values, suggesting:
+   
+   - Manual data entry, OR
+   - A bug in a previous version of the script, OR  
+   - Games were inserted with explicitly wrong season values
+
+THE TWO PROBLEMS:
+-----------------
+
+PROBLEM 1: Inconsistent Season Labels in Database
+- Some Arkansas games from 2024-25 season are mislabeled as "2025-26"
+- Some Arkansas games from 2025-26 season are mislabeled as "2024-25"
+
+PROBLEM 2: API Date Range Filter is Too Strict  
+- The API's date validation (lines 26-47) assumes basketball season dates perfectly
+  align with calendar year boundaries
+- It filters out valid games that don't match the expected date range
+- This is a defensive check that causes false negatives
+
+SPECIFIC BUG IN API ROUTE:
+--------------------------
+The comment on line 27 says:
+"Basketball seasons typically run from November to April 
+(e.g., "2024-25" = Nov 2024 - Apr 2025)"
+
+But the actual filtering expects:
+"2025-26" = Nov 2025 - Apr 2026
+
+For games labeled "2025-26" but dated March 2025:
+- Season check passes: ✓ (season = "2025-26")  
+- Date check fails: ✗ (2025-03-05 < 2025-11-01)
+- Result: Game excluded
+
+SOLUTIONS NEEDED:
+-----------------
+
+1. FIX DATABASE: Correct the season labels for all games
+   - Update games from Dec 2024 - Aug 2025 to season "2024-25"
+   - Update games from Sept 2025+ to season "2025-26"
+
+2. FIX API: Remove or fix the date range validation
+   Option A: Remove lines 26-47 entirely (trust the season field)
+   Option B: Make the date check less strict (warning only, not filter)
+   Option C: Fix the date logic to account for data inconsistencies
+
+3. PREVENT FUTURE ISSUES: Add validation to Python script
+   - Ensure season parameter is passed correctly
+   - Add data validation checks before insert
