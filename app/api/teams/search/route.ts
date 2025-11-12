@@ -3,15 +3,23 @@ import { prisma } from '@/lib/prisma'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
+export const maxDuration = 30 // 30 seconds max for this endpoint
 
 export async function GET(request: NextRequest) {
+  const startTime = Date.now()
   try {
     const { searchParams } = request.nextUrl
     const query = searchParams.get('q') || ''
 
+    console.log('[TEAM_SEARCH] Query:', query, 'Length:', query.length)
+
     if (query.length < 2) {
+      console.log('[TEAM_SEARCH] Query too short, returning empty')
       return NextResponse.json({ teams: [] })
     }
+
+    console.log('[TEAM_SEARCH] Starting database query...')
+    const dbStart = Date.now()
 
     // Use a single query with OR to get both home and away teams
     const games = await prisma.game.findMany({
@@ -72,14 +80,22 @@ export async function GET(request: NextRequest) {
       }
     })
 
+    const dbEnd = Date.now()
+    console.log('[TEAM_SEARCH] DB query completed in', dbEnd - dbStart, 'ms. Found', games.length, 'games')
+
     // Convert to array and limit to 10 results
     const teams = Array.from(teamsMap.values())
       .sort((a, b) => a.teamName.localeCompare(b.teamName))
       .slice(0, 10)
 
+    const totalTime = Date.now() - startTime
+    console.log('[TEAM_SEARCH] Returning', teams.length, 'teams. Total time:', totalTime, 'ms')
+    console.log('[TEAM_SEARCH] Teams:', teams.map(t => t.teamName).join(', '))
+
     return NextResponse.json({ teams })
   } catch (error) {
-    console.error('Error searching teams:', error)
+    const totalTime = Date.now() - startTime
+    console.error('[TEAM_SEARCH] Error after', totalTime, 'ms:', error)
 
     // Check if it's a database connection error
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
