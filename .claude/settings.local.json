@@ -42,7 +42,17 @@
       "Bash(vercel --version:*)",
       "Bash(start https://vercel.com/login)",
       "Bash(vercel --yes:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(vercel --prod:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(bash:*)",
+      "Bash(vercel env:*)",
+      "Bash(vercel logs:*)",
+      "Bash(nul)",
+      "Bash(git push:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

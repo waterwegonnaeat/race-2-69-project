@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Team Search - Race 2 69 Project</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        h1 {
+            color: #FF6B35;
+        }
+        .test-section {
+            background: #2a2a2a;
+            border: 2px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #FF6B35;
+            border-radius: 6px;
+            background: #1a1a1a;
+            color: #fff;
+            margin: 10px 0;
+        }
+        button {
+            background: #FF6B35;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #ff8555;
+        }
+        .results {
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            color: #10B981;
+        }
+        .error {
+            color: #EF4444;
+        }
+        .team-item {
+            background: #2a2a2a;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 3px solid #FF6B35;
+        }
+        .loading {
+            color: #FFD700;
+        }
+        pre {
+            background: #0a0a0a;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.success { background: #10B981; color: white; }
+        .status.error { background: #EF4444; color: white; }
+        .status.pending { background: #FFD700; color: black; }
+    </style>
+</head>
+<body>
+    <h1>🏀 Team Search API Tester</h1>
+    <p>Test the team search functionality on both localhost and Vercel production</p>
+
+    <div class="test-section">
+        <h2>Test 1: Local API (localhost:3000)</h2>
+        <input type="text" id="localQuery" value="raz" placeholder="Enter team name...">
+        <button onclick="testLocal()">Test Local API</button>
+        <button onclick="clearResults('localResults')">Clear</button>
+        <div id="localResults" class="results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Production API (Vercel)</h2>
+        <input type="text" id="prodQuery" value="raz" placeholder="Enter team name...">
+        <button onclick="testProduction()">Test Production API</button>
+        <button onclick="clearResults('prodResults')">Clear</button>
+        <div id="prodResults" class="results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Debug Endpoint (Vercel)</h2>
+        <input type="text" id="debugQuery" value="raz" placeholder="Enter team name...">
+        <button onclick="testDebug()">Test Debug Endpoint</button>
+        <button onclick="clearResults('debugResults')">Clear</button>
+        <div id="debugResults" class="results"></div>
+    </div>
+
+    <script>
+        const PROD_URL = 'https://race-2-69-project.vercel.app';
+        const LOCAL_URL = 'http://localhost:3000';
+
+        function clearResults(elementId) {
+            document.getElementById(elementId).innerHTML = '';
+        }
+
+        async function testLocal() {
+            const query = document.getElementById('localQuery').value;
+            const resultsDiv = document.getElementById('localResults');
+
+            resultsDiv.innerHTML = '<p class="loading">⏳ Testing local API...</p>';
+
+            try {
+                const startTime = Date.now();
+                const response = await fetch(`${LOCAL_URL}/api/teams/search?q=${encodeURIComponent(query)}`);
+                const duration = Date.now() - startTime;
+
+                const data = await response.json();
+
+                displayResults(resultsDiv, {
+                    url: `${LOCAL_URL}/api/teams/search?q=${query}`,
+                    status: response.status,
+                    ok: response.ok,
+                    duration,
+                    data
+                });
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testProduction() {
+            const query = document.getElementById('prodQuery').value;
+            const resultsDiv = document.getElementById('prodResults');
+
+            resultsDiv.innerHTML = '<p class="loading">⏳ Testing production API...</p>';
+
+            try {
+                const startTime = Date.now();
+                const response = await fetch(`${PROD_URL}/api/teams/search?q=${encodeURIComponent(query)}`);
+                const duration = Date.now() - startTime;
+
+                const data = await response.json();
+
+                displayResults(resultsDiv, {
+                    url: `${PROD_URL}/api/teams/search?q=${query}`,
+                    status: response.status,
+                    ok: response.ok,
+                    duration,
+                    data
+                });
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testDebug() {
+            const query = document.getElementById('debugQuery').value;
+            const resultsDiv = document.getElementById('debugResults');
+
+            resultsDiv.innerHTML = '<p class="loading">⏳ Testing debug endpoint...</p>';
+
+            try {
+                const startTime = Date.now();
+                const response = await fetch(`${PROD_URL}/api/test-team-search?q=${encodeURIComponent(query)}`);
+                const duration = Date.now() - startTime;
+
+                const data = await response.json();
+
+                displayResults(resultsDiv, {
+                    url: `${PROD_URL}/api/test-team-search?q=${query}`,
+                    status: response.status,
+                    ok: response.ok,
+                    duration,
+                    data
+                }, true);
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        function displayResults(element, result, isDebug = false) {
+            const statusClass = result.ok ? 'success' : 'error';
+            const statusIcon = result.ok ? '✅' : '❌';
+
+            let html = `
+                <h3>${statusIcon} Response <span class="status ${statusClass}">${result.status}</span></h3>
+                <p><strong>URL:</strong> <code>${result.url}</code></p>
+                <p><strong>Duration:</strong> ${result.duration}ms</p>
+            `;
+
+            if (result.data.error) {
+                html += `<p class="error"><strong>Error:</strong> ${result.data.error}</p>`;
+            }
+
+            if (isDebug) {
+                html += `
+                    <h4>Debug Info:</h4>
+                    <p><strong>Total Games:</strong> ${result.data.totalGames || 'N/A'}</p>
+                    <p><strong>Games Found:</strong> ${result.data.gamesFound || 'N/A'}</p>
+                    <p><strong>Teams Found:</strong> ${result.data.teamsFound || 'N/A'}</p>
+                `;
+            }
+
+            if (result.data.teams && result.data.teams.length > 0) {
+                html += `<h4>Teams Found (${result.data.teams.length}):</h4>`;
+                result.data.teams.forEach(team => {
+                    html += `
+                        <div class="team-item">
+                            <strong>${team.teamName}</strong><br>
+                            <small>ID: ${team.teamId} | Conference: ${team.conference || 'N/A'}</small>
+                        </div>
+                    `;
+                });
+            } else if (!result.data.error) {
+                html += '<p class="error">No teams found</p>';
+            }
+
+            html += `<h4>Raw Response:</h4><pre>${JSON.stringify(result.data, null, 2)}</pre>`;
+
+            element.innerHTML = html;
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            console.log('Page loaded. Click buttons to test APIs.');
+        });
+    </script>
+</body>
+</html>
