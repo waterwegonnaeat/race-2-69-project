@@ -35,7 +35,7 @@ export default function GameDetailPage({ params }: GameDetailPageProps) {
         setGame(gameData)
 
         // Fetch play-by-play events
-        const pbpRes = await fetch(`/api/games/${id}/play-by-play`)
+        const pbpRes = await fetch(`/api/games/${id}/pbp`)
         if (pbpRes.ok) {
           const pbpData = await pbpRes.json()
           setPbpEvents(pbpData.events || [])
