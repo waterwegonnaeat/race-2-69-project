@@ -61,10 +61,29 @@ export async function GET(
     })
   } catch (error) {
     console.error('Error fetching team games:', error)
+
+    // Check if it's a database connection error
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    if (errorMessage.includes('connect') || errorMessage.includes('database') || errorMessage.includes('reach')) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database connection failed. Please check DATABASE_URL configuration.',
+          details: errorMessage,
+          games: [],
+          totalGames: 0,
+        },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json(
       {
         success: false,
         error: 'Failed to fetch team games',
+        details: errorMessage,
+        games: [],
+        totalGames: 0,
       },
       { status: 500 }
     )
