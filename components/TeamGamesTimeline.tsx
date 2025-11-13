@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { format } from 'date-fns'
 import {
   LineChart,
@@ -31,13 +31,7 @@ import {
 } from 'recharts'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import {
-  Tooltip as UITooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { Trophy, Target, TrendingUp, TrendingDown, Activity, ChevronDown, ChevronUp } from 'lucide-react'
+import { Trophy, Target, TrendingUp, TrendingDown, Activity } from 'lucide-react'
 import { DashboardHeader } from './DashboardHeader'
 import { TeamWithLogo } from './TeamLogo'
 
@@ -75,13 +69,13 @@ interface TeamGamesTimelineProps {
 }
 
 export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGamesTimelineProps) {
+  const router = useRouter()
   const [filters, setFilters] = useState({
     gameType: (initialFilters?.gameType || 'all') as 'all' | 'regular' | 'tournament',
     venue: (initialFilters?.venue || 'all') as 'all' | 'home' | 'away',
     result: (initialFilters?.result || 'all') as 'all' | 'wins' | 'losses',
     r69Status: (initialFilters?.r69Status || 'all') as 'all' | 'r69_only' | 'no_r69'
   })
-  const [isGameListExpanded, setIsGameListExpanded] = useState(true)
 
   // Sync filters when initialFilters change from parent
   useEffect(() => {
@@ -427,20 +421,29 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
               stroke="#9ca3af"
             />
             <Tooltip
+              cursor={{ stroke: '#f97316', strokeWidth: 2, strokeDasharray: '5 5' }}
               content={({ active, payload }) => {
                 if (!active || !payload || !payload[0]) return null
                 const data = payload[0].payload
                 return (
-                  <Card className="p-4 border-2 border-orange-400 shadow-xl bg-white dark:bg-zinc-900">
+                  <Card className="p-4 border-2 border-orange-400 shadow-xl bg-white dark:bg-zinc-900 cursor-pointer hover:border-orange-500 transition-colors">
                     <p className="font-bold mb-1 text-gray-900 dark:text-white">{data.fullDate}</p>
                     <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
                       <span>vs</span>
-                      <TeamWithLogo
-                        teamName={data.opponent}
-                        logoUrl={data.opponentLogo}
-                        size="sm"
-                        clickable={false}
-                      />
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          router.push(`/?team=${encodeURIComponent(data.opponent)}`)
+                        }}
+                        className="hover:text-orange-500 transition-colors"
+                      >
+                        <TeamWithLogo
+                          teamName={data.opponent}
+                          logoUrl={data.opponentLogo}
+                          size="sm"
+                          clickable={false}
+                        />
+                      </button>
                       <span>{data.isHome ? '(H)' : '(A)'}</span>
                     </div>
                     <div className="space-y-1">
@@ -457,6 +460,11 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
                           R69 Event - {data.wonAfterR69 ? 'Won' : 'Lost'}
                         </Badge>
                       )}
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                        Click team logo → Team Analysis | Click dot → Game Details
+                      </p>
                     </div>
                   </Card>
                 )
@@ -485,6 +493,8 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
                       fill={payload.wonAfterR69 ? '#10B981' : '#EF4444'}
                       stroke="#fff"
                       strokeWidth={3}
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => router.push(`/game/${payload.gameId}`)}
                     />
                   )
                 }
@@ -496,29 +506,36 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
                     fill={payload.won ? '#10b981' : '#ef4444'}
                     stroke="#fff"
                     strokeWidth={2}
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => router.push(`/game/${payload.gameId}`)}
                   />
                 )
               }}
             />
           </ComposedChart>
         </ResponsiveContainer>
-        <div className="flex items-center justify-center gap-6 mt-6 text-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-green-600 border-2 border-white" />
-            <span className="text-gray-700 dark:text-gray-300 font-medium">Win</span>
+        <div className="space-y-3 mt-6">
+          <div className="flex items-center justify-center gap-6 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-green-600 border-2 border-white" />
+              <span className="text-gray-700 dark:text-gray-300 font-medium">Win</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-red-600 border-2 border-white" />
+              <span className="text-gray-700 dark:text-gray-300 font-medium">Loss</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-green-600 border-3 border-white ring-2 ring-green-400" />
+              <span className="text-gray-700 dark:text-gray-300 font-medium">R69 Win</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-red-600 border-3 border-white ring-2 ring-red-400" />
+              <span className="text-gray-700 dark:text-gray-300 font-medium">R69 Loss</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-red-600 border-2 border-white" />
-            <span className="text-gray-700 dark:text-gray-300 font-medium">Loss</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-green-600 border-3 border-white ring-2 ring-green-400" />
-            <span className="text-gray-700 dark:text-gray-300 font-medium">R69 Win</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-red-600 border-3 border-white ring-2 ring-red-400" />
-            <span className="text-gray-700 dark:text-gray-300 font-medium">R69 Loss</span>
-          </div>
+          <p className="text-xs text-center text-gray-500 dark:text-gray-400 italic">
+            💡 Click any dot to view game details • Click opponent logo in tooltip to view their team analysis
+          </p>
         </div>
       </Card>
 
@@ -636,174 +653,6 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
         )
       })()}
 
-      {/* Game-by-Game List */}
-      <Card className="p-6 bg-white/95 dark:bg-zinc-900/95 border-2 border-gray-200 dark:border-gray-800">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-            <Trophy className="h-5 w-5 text-orange-600 dark:text-orange-400" />
-            Game-by-Game Results
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
-              ({filteredData.length} {filteredData.length === 1 ? 'game' : 'games'})
-            </span>
-          </h3>
-          <button
-            onClick={() => setIsGameListExpanded(!isGameListExpanded)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300 text-sm font-medium"
-          >
-            {isGameListExpanded ? (
-              <>
-                <ChevronUp className="h-4 w-4" />
-                Collapse
-              </>
-            ) : (
-              <>
-                <ChevronDown className="h-4 w-4" />
-                Expand
-              </>
-            )}
-          </button>
-        </div>
-        {isGameListExpanded && (
-          <TooltipProvider delayDuration={200}>
-            <div className="space-y-2">
-            {filteredData.length === 0 ? (
-              <div className="text-center py-12">
-                <Target className="h-12 w-12 mx-auto text-gray-400 dark:text-gray-600 mb-3" />
-                <p className="text-gray-600 dark:text-gray-400 font-medium">No games match the current filters</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">Try adjusting your filter settings</p>
-              </div>
-            ) : (
-              filteredData.map((game, index) => (
-              <UITooltip key={game.gameId}>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={`/game/${game.gameId}`}
-                    className="block group"
-                  >
-                    <div className={`p-3 rounded-lg border transition-all hover:border-orange-500 hover:shadow-md ${
-                      game.won === true
-                        ? 'bg-green-50/80 dark:bg-green-950/20 border-green-200 dark:border-green-900/50'
-                        : game.won === false
-                        ? 'bg-red-50/80 dark:bg-red-950/20 border-red-200 dark:border-red-900/50'
-                        : 'bg-gray-50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800'
-                    }`}>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="text-xs text-gray-600 dark:text-gray-400 font-mono w-12">
-                            {game.date}
-                          </div>
-                          {game.won === true && <Trophy className="h-4 w-4 text-green-600 dark:text-green-400" />}
-                          {game.won === false && <TrendingDown className="h-4 w-4 text-red-600 dark:text-red-400" />}
-                          <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">vs</span>
-                          <TeamWithLogo
-                            teamName={game.opponent}
-                            logoUrl={game.opponentLogo}
-                            size="sm"
-                            clickable={true}
-                            className="hover:text-basketball-orange"
-                          />
-                          {!game.isHome && <Badge variant="outline" className="text-xs h-5 bg-white/50 dark:bg-gray-800/50">A</Badge>}
-                          {game.hadR69Event && (
-                            <Badge className="bg-orange-500/20 text-orange-800 dark:text-orange-400 border border-orange-500/50 text-xs h-5 px-2">
-                              R69
-                            </Badge>
-                          )}
-                        </div>
-
-                        {game.teamScore !== null && game.oppScore !== null && (
-                          <div className="flex items-center gap-2">
-                            <span className={`text-lg font-bold ${game.won ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
-                              {game.teamScore}
-                            </span>
-                            <span className="text-gray-400 dark:text-gray-600 font-medium">-</span>
-                            <span className="text-lg font-bold text-gray-600 dark:text-gray-400">
-                              {game.oppScore}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right" className="max-w-xs p-4 bg-white dark:bg-zinc-900 border-2 border-orange-400">
-                  <div className="space-y-3">
-                    <div>
-                      <p className="font-bold text-gray-900 dark:text-white">{game.fullDate}</p>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <span>vs</span>
-                        <TeamWithLogo
-                          teamName={game.opponent}
-                          logoUrl={game.opponentLogo}
-                          size="sm"
-                          clickable={false}
-                        />
-                        <span>{game.isHome ? '(Home)' : '(Away)'}</span>
-                      </div>
-                    </div>
-
-                    {game.teamScore !== null && game.oppScore !== null && (
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-700 dark:text-gray-300">Final Score:</span>
-                          <span className="font-semibold text-gray-900 dark:text-white">
-                            {game.teamScore} - {game.oppScore}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-700 dark:text-gray-300">Margin:</span>
-                          <span className={`font-semibold ${game.margin && game.margin > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                            {game.margin && game.margin > 0 ? '+' : ''}{game.margin}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-700 dark:text-gray-300">Result:</span>
-                          <Badge className={game.won ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'}>
-                            {game.won ? 'Win' : 'Loss'}
-                          </Badge>
-                        </div>
-                      </div>
-                    )}
-
-                    {game.hadR69Event && (
-                      <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge className="bg-orange-500/20 text-orange-700 dark:text-orange-400 border-orange-500">
-                            R69 Event
-                          </Badge>
-                        </div>
-                        <div className="space-y-1 text-sm">
-                          <div className="flex justify-between">
-                            <span className="text-gray-600 dark:text-gray-400">Margin at 69:</span>
-                            <span className="font-medium text-gray-900 dark:text-white">{game.marginAt69}</span>
-                          </div>
-                          {game.tTo69 !== null && (
-                            <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-gray-400">Time to 69:</span>
-                              <span className="font-medium text-gray-900 dark:text-white">{game.tTo69.toFixed(1)} min</span>
-                            </div>
-                          )}
-                          <div className="flex justify-between">
-                            <span className="text-gray-600 dark:text-gray-400">R69 Result:</span>
-                            <Badge className={game.wonAfterR69 ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'}>
-                              {game.wonAfterR69 ? 'R69W' : 'R69L'}
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    <p className="text-xs text-gray-500 dark:text-gray-500 pt-2 border-t border-gray-200 dark:border-gray-700">
-                      Click to view full game details
-                    </p>
-                  </div>
-                </TooltipContent>
-              </UITooltip>
-              ))
-            )}
-          </div>
-        </TooltipProvider>
-        )}
-      </Card>
     </div>
   )
 }

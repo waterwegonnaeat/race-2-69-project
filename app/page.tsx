@@ -40,9 +40,19 @@ function DashboardContent() {
       try {
         const response = await fetch('/api/seasons')
         const data = await response.json()
-        setAvailableSeasons(data.seasons || [])
-        // Auto-select all seasons
-        setSelectedSeasons(data.seasons || [])
+        const seasons = data.seasons || []
+        setAvailableSeasons(seasons)
+
+        // Default to current season (2024-25) if available, otherwise use the first season
+        const currentSeason = '2024-25'
+        if (seasons.includes(currentSeason)) {
+          setSeasonFilter(currentSeason)
+          setSelectedSeasons([currentSeason])
+        } else if (seasons.length > 0) {
+          // If current season not found, use the most recent season (first in the list)
+          setSeasonFilter(seasons[0])
+          setSelectedSeasons([seasons[0]])
+        }
       } catch (error) {
         console.error('Error fetching seasons:', error)
       }

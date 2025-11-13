@@ -58,6 +58,10 @@ model Game {
   @@index([gameStatus])
   @@index([league])
   @@index([season])
+  @@index([homeTeamName])
+  @@index([awayTeamName])
+  @@index([homeTeamId])
+  @@index([awayTeamId])
   @@map("games")
 }
 

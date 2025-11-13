@@ -52,7 +52,9 @@
       "Bash(vercel logs:*)",
       "Bash(nul)",
       "Bash(git push:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []
