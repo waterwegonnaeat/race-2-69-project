@@ -18,6 +18,15 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ teams: [] })
     }
 
+    // Test database connection first
+    try {
+      await prisma.$queryRaw`SELECT 1`
+      console.log('[TEAM_SEARCH] Database connection OK')
+    } catch (dbError) {
+      console.error('[TEAM_SEARCH] Database connection failed:', dbError)
+      throw dbError
+    }
+
     console.log('[TEAM_SEARCH] Starting database query...')
     const dbStart = Date.now()
 
