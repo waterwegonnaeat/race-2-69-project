@@ -22,7 +22,7 @@ import {
 function DashboardContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
-  const [selectedTeam, setSelectedTeam] = useState<string | null>(null)
+  const [selectedTeam, setSelectedTeam] = useState<string | null>('Arkansas Razorbacks')
   const [selectedTeamLogo, setSelectedTeamLogo] = useState<string | null>(null)
   const [selectedSeasons, setSelectedSeasons] = useState<string[]>([])
   const [availableSeasons, setAvailableSeasons] = useState<string[]>([])
@@ -33,7 +33,7 @@ function DashboardContent() {
   const [gameType, setGameType] = useState<string>('all')
   const [result, setResult] = useState<string>('all')
   const [r69Status, setR69Status] = useState<string>('all')
-  const [seasonFilter, setSeasonFilter] = useState<string>('all')
+  const [seasonFilter, setSeasonFilter] = useState<string>('2024-25')
 
   // Fetch available seasons
   useEffect(() => {
@@ -44,10 +44,9 @@ function DashboardContent() {
         const seasons = data.seasons || []
         setAvailableSeasons(seasons)
 
-        // Default to current season (2024-25) if available, otherwise use the first season
+        // Set selectedSeasons to current season only
         const currentSeason = '2024-25'
         if (seasons.includes(currentSeason)) {
-          setSeasonFilter(currentSeason)
           setSelectedSeasons([currentSeason])
         } else if (seasons.length > 0) {
           // If current season not found, use the most recent season (first in the list)
@@ -292,9 +291,9 @@ function DashboardContent() {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          setSelectedTeam(null)
+                          setSelectedTeam('Arkansas Razorbacks')
                           setSelectedTeamLogo(null)
-                          setSeasonFilter('all')
+                          setSeasonFilter('2024-25')
                           setVenue('all')
                           setGameType('all')
                           setResult('all')
@@ -302,7 +301,7 @@ function DashboardContent() {
                         }}
                         className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-basketball-orange/50 transition-all"
                       >
-                        Clear All
+                        Reset Filters
                       </Button>
                     )}
                   </div>
