@@ -19,14 +19,40 @@ export async function GET() {
 
     const seasonList = seasons.map(s => s.season)
 
-    return NextResponse.json({
-      seasons: seasonList,
-    })
+    return NextResponse.json(
+      {
+        seasons: seasonList,
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
+      }
+    )
   } catch (error) {
     console.error('Error fetching seasons:', error)
     return NextResponse.json(
       { error: 'Failed to fetch seasons' },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
     )
   }
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
 }
