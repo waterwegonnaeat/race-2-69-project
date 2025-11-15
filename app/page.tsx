@@ -24,7 +24,7 @@ function DashboardContent() {
   const router = useRouter()
   const [selectedTeam, setSelectedTeam] = useState<string | null>('Arkansas Razorbacks')
   const [selectedTeamLogo, setSelectedTeamLogo] = useState<string | null>(null)
-  const [selectedSeasons, setSelectedSeasons] = useState<string[]>([])
+  const [selectedSeasons, setSelectedSeasons] = useState<string[]>(['2024-25'])
   const [availableSeasons, setAvailableSeasons] = useState<string[]>([])
   const [menuOpen, setMenuOpen] = useState(false)
 
