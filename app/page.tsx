@@ -3,7 +3,7 @@
 export const dynamic = 'force-dynamic'
 
 import { useState, useEffect, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { TeamSearch } from '@/components/TeamSearch'
 import { TeamGamesTimeline } from '@/components/TeamGamesTimeline'
@@ -21,6 +21,7 @@ import {
 
 function DashboardContent() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null)
   const [selectedTeamLogo, setSelectedTeamLogo] = useState<string | null>(null)
   const [selectedSeasons, setSelectedSeasons] = useState<string[]>([])
@@ -69,14 +70,49 @@ function DashboardContent() {
     }
   }, [seasonFilter, availableSeasons])
 
-  // Handle URL parameters for team selection
+  // Handle URL parameters for team selection and filters
   useEffect(() => {
     const teamParam = searchParams?.get('team')
+    const venueParam = searchParams?.get('venue')
+    const gameTypeParam = searchParams?.get('gameType')
+    const resultParam = searchParams?.get('result')
+    const r69StatusParam = searchParams?.get('r69Status')
+    const seasonParam = searchParams?.get('season')
 
     if (teamParam) {
       setSelectedTeam(decodeURIComponent(teamParam))
     }
+    if (venueParam) {
+      setVenue(venueParam)
+    }
+    if (gameTypeParam) {
+      setGameType(gameTypeParam)
+    }
+    if (resultParam) {
+      setResult(resultParam)
+    }
+    if (r69StatusParam) {
+      setR69Status(r69StatusParam)
+    }
+    if (seasonParam) {
+      setSeasonFilter(seasonParam)
+    }
   }, [searchParams])
+
+  // Sync filters to URL when they change
+  useEffect(() => {
+    if (!selectedTeam) return
+
+    const params = new URLSearchParams()
+    params.set('team', selectedTeam)
+    if (venue !== 'all') params.set('venue', venue)
+    if (gameType !== 'all') params.set('gameType', gameType)
+    if (result !== 'all') params.set('result', result)
+    if (r69Status !== 'all') params.set('r69Status', r69Status)
+    if (seasonFilter !== 'all') params.set('season', seasonFilter)
+
+    router.push(`?${params.toString()}`, { scroll: false })
+  }, [selectedTeam, venue, gameType, result, r69Status, seasonFilter, router])
 
 
   // Fetch team games
@@ -239,7 +275,7 @@ function DashboardContent() {
 
           <div className="space-y-6 overflow-visible">
               {/* Unified Team Selection & Filter Panel */}
-              <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-visible relative z-50">
+              <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-visible shadow-2xl">
                 <CardHeader className="border-b border-white/10 pb-4">
                   <div className="flex items-center justify-between">
                     <div>

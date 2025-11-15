@@ -54,7 +54,8 @@
       "Bash(git push:*)",
       "Bash(rm:*)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(/dev/null)"
     ],
     "deny": [],
     "ask": []

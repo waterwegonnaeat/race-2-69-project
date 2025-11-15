@@ -3,6 +3,7 @@
 import { useMemo, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { format } from 'date-fns'
+import { GameAnalysisModal } from './GameAnalysisModal'
 import {
   LineChart,
   Line,
@@ -76,6 +77,8 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
     result: (initialFilters?.result || 'all') as 'all' | 'wins' | 'losses',
     r69Status: (initialFilters?.r69Status || 'all') as 'all' | 'r69_only' | 'no_r69'
   })
+  const [selectedGameId, setSelectedGameId] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Sync filters when initialFilters change from parent
   useEffect(() => {
@@ -494,7 +497,10 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
                       stroke="#fff"
                       strokeWidth={3}
                       style={{ cursor: 'pointer' }}
-                      onClick={() => router.push(`/game/${payload.gameId}`)}
+                      onClick={() => {
+                        setSelectedGameId(payload.gameId)
+                        setIsModalOpen(true)
+                      }}
                     />
                   )
                 }
@@ -507,7 +513,10 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
                     stroke="#fff"
                     strokeWidth={2}
                     style={{ cursor: 'pointer' }}
-                    onClick={() => router.push(`/game/${payload.gameId}`)}
+                    onClick={() => {
+                      setSelectedGameId(payload.gameId)
+                      setIsModalOpen(true)
+                    }}
                   />
                 )
               }}
@@ -534,10 +543,17 @@ export function TeamGamesTimeline({ games, teamName, initialFilters }: TeamGames
             </div>
           </div>
           <p className="text-xs text-center text-gray-500 dark:text-gray-400 italic">
-            💡 Click any dot to view game details • Click opponent logo in tooltip to view their team analysis
+            💡 Click any dot to open game analysis popup • Click opponent logo in tooltip to view their team analysis
           </p>
         </div>
       </Card>
+
+      {/* Game Analysis Modal */}
+      <GameAnalysisModal
+        gameId={selectedGameId}
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+      />
 
       {/* R69 Win Rate by Margin Analysis */}
       {stats.r69Games > 0 && (() => {
